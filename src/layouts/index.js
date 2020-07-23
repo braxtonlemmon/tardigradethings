@@ -4,16 +4,17 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Header from '../components/Header'
 import PromoBanner from '../components/PromoBanner'
-
 import ContextProvider from '~/provider/ContextProvider'
-
-import Navigation from '~/components/Navigation'
+import Footer from '../components/Footer'
 
 const Wrapper = styled.div`
   margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
 `
-
-const Container = styled.div``
 
 const Layout = ({ children }) => {
   return (
@@ -33,14 +34,8 @@ const Layout = ({ children }) => {
             <PromoBanner />
             <Header siteTitle={data.site.siteMetadata.title} />
             {/* <Navigation siteTitle={data.site.siteMetadata.title} /> */}
-            <Wrapper>
-              {children}
-              <footer>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
-              </footer>
-            </Wrapper>
+            <Wrapper>{children}</Wrapper>
+            <Footer />
           </>
         )}
       />

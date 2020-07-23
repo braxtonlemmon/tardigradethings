@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 import Dogstagram from '../components/Dogstagram'
 import SEO from '~/components/seo'
 import ProductGrid from '~/components/ProductGrid'
