@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import { wrapRootElement as wrap } from './root-wrapper'
 
-// You can delete this file if you're not using it
+import 'whatwg-fetch'
+
+export const onClientEntry = async () => {
+  if (typeof IntersectionObserver === 'undefined') {
+    await import('intersection-observer')
+    console.log('Successfully imported intersection-observer')
+  } else {
+    console.log('Did not need to import intersection-observer')
+  }
+}
+
+export const wrapPageElement = wrap
