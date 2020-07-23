@@ -19,6 +19,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: ['Epilogue'],
+      },
+    },
     `gatsby-plugin-layout`,
     'gatsby-plugin-styled-components',
     `gatsby-transformer-sharp`,

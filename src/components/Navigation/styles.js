@@ -6,6 +6,7 @@ import { breakpoints } from '../../utils/styles'
 export const Wrapper = styled.div`
   background: rebeccapurple;
   margin-bottom: 1.45rem;
+  width: 100%;
 `
 
 export const Container = styled.div`
@@ -15,6 +16,8 @@ export const Container = styled.div`
   padding: 1.45rem;
   margin: 0 auto;
   max-width: 960px;
+  position: sticky;
+  top: 0;
 `
 
 export const MenuLink = styled(Link)`

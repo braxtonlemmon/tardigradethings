@@ -3,30 +3,19 @@ import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import PromoBanner from '../PromoBanner'
 import StoreContext from '~/context/StoreContext'
-import { CartCounter, Container, MenuLink, Wrapper } from './styles'
+import styled from 'styled-components'
+import Header from '../Header'
 
-const useQuantity = () => {
-  const {
-    store: { checkout },
-  } = useContext(StoreContext)
-  const items = checkout ? checkout.lineItems : []
-  const total = reduce(items, (acc, item) => acc + item.quantity, 0)
-  return [total !== 0, total]
-}
+const Wrapper = styled.header`
+  width: 100%;
+  position: sticky;
+`
 
 const Navigation = ({ siteTitle }) => {
-  const [hasItems, quantity] = useQuantity()
-
   return (
     <Wrapper>
       <PromoBanner />
-      <Container>
-        <MenuLink to="/">{siteTitle}</MenuLink>
-        <MenuLink to="/cart">
-          {hasItems && <CartCounter>{quantity}</CartCounter>}
-          Cart 🛍
-        </MenuLink>
-      </Container>
+      <Header siteTitle={siteTitle} />
     </Wrapper>
   )
 }
