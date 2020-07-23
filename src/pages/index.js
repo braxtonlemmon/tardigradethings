@@ -8,7 +8,10 @@ import ProductGrid from '~/components/ProductGrid'
 function IndexPage({ data }) {
   return (
     <>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title="Home"
+        keywords={['dog treats', 'peanut butter', 'subscription', 'dogs']}
+      />
       <h1>Hi people</h1>
       <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
       <ProductGrid />
