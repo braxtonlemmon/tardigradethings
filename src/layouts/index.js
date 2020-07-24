@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -26,6 +26,13 @@ const Main = styled.div`
 `
 
 const Layout = ({ children }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false)
+
+  const handleMenuClick = () => {
+    console.log(isMenuOpen)
+    setMenuOpen(!isMenuOpen)
+  }
+
   return (
     <ContextProvider>
       <StaticQuery
@@ -41,7 +48,11 @@ const Layout = ({ children }) => {
         render={data => (
           <Container>
             <PromoBanner />
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              handleMenuClick={handleMenuClick}
+              isMenuOpen={isMenuOpen}
+            />
             <Main>{children}</Main>
             <Footer />
           </Container>

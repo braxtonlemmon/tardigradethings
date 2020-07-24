@@ -31,7 +31,7 @@ const LineItem = props => {
 
   return (
     <Wrapper>
-      {console.log(item)}
+      {/* {console.log(item)} */}
       <Link to={`/product/${item.variant.product.handle}/`}>
         {variantImage}
       </Link>
