@@ -7,19 +7,32 @@ import { Link } from 'gatsby'
 import { AiOutlineShopping } from 'react-icons/ai'
 import Hamburger from './Hamburger'
 import logo from '../images/dog-bone.svg'
+import MobileMenu from './MobileMenu'
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+`
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  /* flex: 1; */
+  /* max-height: 80px; */
   justify-content: space-between;
   align-items: center;
-  position: -webkit-sticky;
+  /* position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 0; */
   padding: 10px 10px 10px 0;
   background: ${props => props.theme.colors.card};
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.6);
-  z-index: 500;
+  /* z-index: 500; */
   font-weight: bold;
   .dog-bone {
     height: 30px;
@@ -106,29 +119,35 @@ const useQuantity = () => {
 function Header({ siteTitle, handleMenuClick, isMenuOpen }) {
   const [hasItems, quantity] = useQuantity()
   return (
-    <Wrapper>
-      <Group>
-        <HeaderLink to="/">
-          <img
-            className="dog-bone"
-            src={logo}
-            alt="peanut butter dog treat logo"
+    <Container>
+      <Wrapper>
+        <Group>
+          <HeaderLink to="/">
+            <img
+              className="dog-bone"
+              src={logo}
+              alt="peanut butter dog treat logo"
+            />
+          </HeaderLink>
+          <HeaderLink to="/">
+            <h1>{siteTitle}</h1>
+          </HeaderLink>
+        </Group>
+        <Group>
+          <HeaderLink className="cart" to="/cart">
+            <HeaderCart>
+              <AiOutlineShopping className="bag" />
+              {hasItems && <div className="qty">{quantity}</div>}
+            </HeaderCart>
+          </HeaderLink>
+          <Hamburger
+            handleMenuClick={handleMenuClick}
+            isMenuOpen={isMenuOpen}
           />
-        </HeaderLink>
-        <HeaderLink to="/">
-          <h1>{siteTitle}</h1>
-        </HeaderLink>
-      </Group>
-      <Group>
-        <HeaderLink className="cart" to="/cart">
-          <HeaderCart>
-            <AiOutlineShopping className="bag" />
-            {hasItems && <div className="qty">{quantity}</div>}
-          </HeaderCart>
-        </HeaderLink>
-        <Hamburger handleMenuClick={handleMenuClick} isMenuOpen={isMenuOpen} />
-      </Group>
-    </Wrapper>
+        </Group>
+      </Wrapper>
+      <MobileMenu isMenuOpen={isMenuOpen} />
+    </Container>
   )
 }
 
