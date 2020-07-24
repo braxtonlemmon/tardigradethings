@@ -7,9 +7,14 @@ const Wrapper = styled.header`
   justify-content: center;
   align-items: center;
   background: ${props => props.theme.colors.light};
+  color: white;
   padding: 15px;
   text-align: center;
+  letter-spacing: 2px;
   background: linear-gradient(#b98e52, #dfb27c);
+  background: radial-gradient(#b98e52, #dfb27c);
+  background: ${props => props.theme.colors.dark};
+  line-height: 1.1em;
 `
 
 function PromoBanner() {
