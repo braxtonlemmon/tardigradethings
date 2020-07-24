@@ -1,13 +1,18 @@
 const theme = {
   colors: {
-    dark: '#2f3020',
-    medium: '#596235',
-    pale: '#cdcbd6',
-    coral: '#d96846',
+    dark: '#380807',
+    darkLight: '#38080780',
+    card: '#e08982',
+    pb: '#b98e52',
+    light: '#dfb27c',
   },
 
   fontSize: {
-    paragraph: '1.3em',
+    normal: '1em',
+    medium: '1.25em',
+    large: '1.56em',
+    larger: '1.95em',
+    huge: '2.4em',
   },
 }
 

@@ -7,13 +7,15 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    font-family: 'Epilogue',
+    font-family: 'Epilogue';
+    font-size: 17px;
   }
 
   body, html {
     height: 100%;
     width: 100%;
-    font-family: 'Epilogue'
+    font-family: 'Epilogue';
+    font-size: 17px;
   }
 
   html {
@@ -28,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: black;
+    color: #380807;
   }
 `
 

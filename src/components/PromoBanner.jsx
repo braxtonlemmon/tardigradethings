@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: yellow;
+  background: ${props => props.theme.colors.light};
   padding: 15px;
   text-align: center;
 `
@@ -14,7 +14,7 @@ const Wrapper = styled.header`
 function PromoBanner() {
   return (
     <Wrapper>
-      <h2>Subscribe for a recurring box and save 5%!</h2>
+      <h2>Subscribe for a recurring box and get 5% off!</h2>
     </Wrapper>
   )
 }

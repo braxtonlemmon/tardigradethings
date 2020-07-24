@@ -11,7 +11,7 @@ module.exports = {
     author: `Braxton Lemmon`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-polyfill-io',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,22 +25,25 @@ module.exports = {
         fonts: ['Epilogue'],
       },
     },
-    `gatsby-plugin-layout`,
-    'gatsby-plugin-styled-components',
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Peanut Butter Dog Treats`,
         short_name: `Peanut Butter Dog Treats`,
+        description: 'The best place to buy peanut butter dog treats',
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        lang: 'en',
+        background_color: `#e08982`,
+        theme_color: `#e08982`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`,
+        icon: 'src/images/garlic.svg',
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-layout`,
+    'gatsby-plugin-styled-components',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-shopify`,
       options: {
