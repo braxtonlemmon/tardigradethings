@@ -89,7 +89,7 @@ function Footer() {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/">Food Law</Link>
+              <Link to="/cottage">Food Law</Link>
             </li>
             <li>
               <Link to="/shipping">Shipping</Link>

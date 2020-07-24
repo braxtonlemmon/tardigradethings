@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { PageWrapper } from '~/utils/styles'
 
-function Blog() {
+function CottageLaw() {
   return (
     <PageWrapper>
-      <h1>Blog</h1>
-      <p>blog</p>
+      <h1>Texas Cottage Food Law</h1>
+      <p>info</p>
     </PageWrapper>
   )
 }
 
-export default Blog
+export default CottageLaw

@@ -10,7 +10,6 @@ import Footer from '../components/Footer'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   width: 100%;

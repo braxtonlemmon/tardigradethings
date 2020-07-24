@@ -5,7 +5,7 @@ import { breakpoints } from '../../utils/styles'
 export const Grid = styled.div`
   display: grid;
   width: 100%;
-  background: pink;
+
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   padding: 20px;

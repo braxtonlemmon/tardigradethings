@@ -9,6 +9,7 @@ const Wrapper = styled.header`
   background: ${props => props.theme.colors.light};
   padding: 15px;
   text-align: center;
+  background: linear-gradient(#b98e52, #dfb27c);
 `
 
 function PromoBanner() {

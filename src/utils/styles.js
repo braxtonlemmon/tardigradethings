@@ -71,3 +71,16 @@ export const MainContent = styled.main`
     margin-bottom: 20px;
   }
 `
+
+export const PageWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: ${props => props.theme.fontSize.larger};
+    margin-bottom: 20px;
+  }
+`

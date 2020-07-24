@@ -15,16 +15,24 @@ const Wrapper = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 20px 10px;
+  padding: 10px;
   background: ${props => props.theme.colors.card};
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.6);
   z-index: 500;
+
+  .logo {
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
 `
 
 const HeaderLink = styled(Link)`
-  color: white;
+  color: ${props => props.theme.colors.dark};
   h1 {
     font-size: ${props => props.theme.fontSize.medium};
+    width: 150px;
+    line-height: ${props => props.theme.fontSize.large};
   }
 `
 
@@ -53,7 +61,7 @@ function Header({ siteTitle }) {
   const logo = data.file.childImageSharp.fixed
   return (
     <Wrapper>
-      <Img fixed={logo} alt="blah" />
+      <Img className="logo" fixed={logo} alt="dog treat logo" />
       <HeaderLink to="/">
         <h1>{siteTitle}</h1>
       </HeaderLink>
