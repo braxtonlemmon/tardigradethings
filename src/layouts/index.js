@@ -7,7 +7,17 @@ import PromoBanner from '../components/PromoBanner'
 import ContextProvider from '~/provider/ContextProvider'
 import Footer from '../components/Footer'
 
-const Wrapper = styled.div`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  width: 100%;
+  min-height: 100vh;
+`
+
+const Main = styled.div`
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -30,13 +40,12 @@ const Layout = ({ children }) => {
           }
         `}
         render={data => (
-          <>
+          <Container>
             <PromoBanner />
             <Header siteTitle={data.site.siteMetadata.title} />
-            {/* <Navigation siteTitle={data.site.siteMetadata.title} /> */}
-            <Wrapper>{children}</Wrapper>
+            <Main>{children}</Main>
             <Footer />
-          </>
+          </Container>
         )}
       />
     </ContextProvider>

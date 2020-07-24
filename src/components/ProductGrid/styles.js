@@ -4,9 +4,11 @@ import { breakpoints } from '../../utils/styles'
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background: pink;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
-
+  padding: 20px;
   @media (max-width: ${breakpoints.s}px) {
     grid-template-columns: repeat(1, 1fr);
   }
