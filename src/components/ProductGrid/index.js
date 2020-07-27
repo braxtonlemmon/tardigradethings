@@ -50,7 +50,8 @@ const ProductGrid = () => {
 
   return (
     <>
-      <HomeHeading>Products</HomeHeading>
+      <HomeHeading>Dog Treats</HomeHeading>
+
       <Grid>
         {allShopifyProduct.edges ? (
           allShopifyProduct.edges.map(

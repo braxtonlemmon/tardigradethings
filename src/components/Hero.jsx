@@ -15,6 +15,9 @@ const Wrapper = styled.div`
     height: 100%;
     width: 100%;
   }
+  @media (min-width: 768px) {
+    height: 500px;
+  }
 `
 
 const DimLayer = styled.div`

@@ -90,8 +90,7 @@ export const HomeHeading = styled.h2`
   padding: 10px 0;
   width: 70%;
   max-width: 400px;
-  border-top: 5px double ${props => props.theme.colors.dark};
-  border-bottom: 5px double ${props => props.theme.colors.dark};
+  border-bottom: 3px solid ${props => props.theme.colors.dark};
   text-align: center;
   margin: 15px;
 `
