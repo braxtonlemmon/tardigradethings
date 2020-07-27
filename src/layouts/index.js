@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const handleMenuClick = () => {
-    console.log(isMenuOpen)
     setMenuOpen(!isMenuOpen)
   }
 

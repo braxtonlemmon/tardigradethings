@@ -4,9 +4,12 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  height: 400px;
-  transition: flex 250ms ease-in-out;
-  flex: ${props => (props.isMenuOpen ? '1' : '0')};
+  /* height: 400px; */
+  /* transition: flex 250ms ease-in-out;
+  flex: ${props => (props.isMenuOpen ? '1' : '0')}; */
+  transition: max-height 300ms ease;
+  max-height: 0;
+  max-height: ${props => (props.isMenuOpen ? '400px' : '0')};
   background: white;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   display: flex;
