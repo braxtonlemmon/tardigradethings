@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  h2 {
+    font-size: ${props => props.theme.fontSize.larger};
+    margin-bottom: 15px;
+  }
 `
 const Images = styled.div`
   display: flex;
@@ -22,9 +27,11 @@ const ImgBox = styled.div`
   width: 300px;
   box-shadow: 0 0 3px grey;
   margin: 5px;
+  border-radius: 10px;
   .dogstagram___img {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
   }
 `
 
