@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import Button from './Button'
 
 const Wrapper = styled.div`
   position: relative;
@@ -44,26 +45,6 @@ const Info = styled.div`
   align-items: center;
   flex-direction: column;
   text-align: center;
-  p {
-    width: 70%;
-    max-width: 400px;
-    color: white;
-    font-size: ${props => props.theme.fontSize.medium};
-    font-weight: bold;
-    line-height: 1.4em;
-  }
-  p::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    background: inherit;
-    background-attachment: fixed;
-    filter: blur(12px);
-    transform: scale(2);
-    width: 100%;
-    height: 100%;
-  }
   h1 {
     font-size: ${props => props.theme.fontSize.larger};
     color: white;
@@ -96,13 +77,9 @@ function Hero() {
       <DimLayer></DimLayer>
       <Info>
         <h1>Nutritious, homemade treats for happier pups!</h1>
-        {/* <p>
-          These goodies are made with all-natural oats and gluten-free peanut
-          butter. No xylitol, no artificial preservatives, no artificial
-          flavoring, doggy taste tested!{' '}
-        </p> */}
-        {/* <p>All-natural and doggy taste-tested!</p> */}
-        <button>Buy now!</button>
+        <Link to="/shop">
+          <Button>buy now</Button>
+        </Link>
       </Info>
     </Wrapper>
   )
