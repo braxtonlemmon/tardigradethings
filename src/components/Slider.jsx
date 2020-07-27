@@ -13,9 +13,13 @@ const slide = keyframes`
   }
 `
 const Container = styled.div`
-  width: 400px;
+  width: 300px;
   height: 400px;
   margin: 20px 0;
+  @media (min-width: 412px) {
+    width: 400px;
+    height: 400px;
+  }
   @media (min-width: 768px) {
     height: 600px;
     width: 600px;

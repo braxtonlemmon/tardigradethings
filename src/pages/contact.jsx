@@ -9,8 +9,8 @@ const Section = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  width: 90%;
-  padding: 20px;
+  width: 100%;
+  padding: 20px 0;
   /* border-bottom: 1px solid ${props => props.theme.colors.dark}; */
   h2 {
     font-size: ${props => props.theme.fontSize.medium};
@@ -54,8 +54,8 @@ function Contact() {
         <iframe
           className="map-1"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.8924540731714!2d-96.57324068454211!3d33.321626980811004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c72709decad9f%3A0xb9cc805425d70991!2sLuscombe%20Farm%20Specialty%20Food%20Store!5e0!3m2!1sen!2sbe!4v1595860680095!5m2!1sen!2sbe"
-          width="400"
-          height="300"
+          width="280"
+          height="350"
           frameBorder="0"
           allowFullScreen
           aria-hidden="false"
@@ -64,8 +64,8 @@ function Contact() {
         <p>Denison Farmers Market</p>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.180844244569!2d-96.54764442009964!3d33.755992380782075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c85abd2206fe1%3A0x3d961609e51bad11!2sDowntown%20Denison%20Farmers%20Market!5e0!3m2!1sen!2sbe!4v1595860721838!5m2!1sen!2sbe"
-          width="400"
-          height="300"
+          width="280"
+          height="350"
           frameBorder="0"
           allowFullScreen
           aria-hidden="false"

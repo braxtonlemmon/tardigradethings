@@ -46,7 +46,7 @@ function IndexPage({ data }) {
         </p>
         <Slider images={images} />
       </MainContent>
-      <ProductGrid />
+      {/* <ProductGrid /> */}
       <Dogstagram />
     </>
   )
