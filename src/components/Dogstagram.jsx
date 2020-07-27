@@ -2,18 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import { HomeHeading } from '~/utils/styles'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px auto;
   width: 100%;
-
-  h2 {
-    font-size: ${props => props.theme.fontSize.larger};
-    margin-bottom: 15px;
-  }
 `
 const Images = styled.div`
   display: flex;
@@ -23,7 +20,7 @@ const Images = styled.div`
 `
 
 const ImgBox = styled.div`
-  height: 300px;
+  height: 400px;
   width: 300px;
   box-shadow: 0 0 3px grey;
   margin: 5px;
@@ -62,7 +59,7 @@ function Dogstagram() {
 
   return (
     <Wrapper>
-      <h2>Dogstagram</h2>
+      <HomeHeading>Dogstagram</HomeHeading>
       <Images>
         {pictures.map(({ node }) => (
           <ImgBox>

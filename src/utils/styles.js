@@ -84,3 +84,14 @@ export const PageWrapper = styled.div`
     margin-bottom: 20px;
   }
 `
+
+export const HomeHeading = styled.h2`
+  font-size: ${props => props.theme.fontSize.larger};
+  padding: 10px 0;
+  width: 70%;
+  max-width: 400px;
+  border-top: 5px double ${props => props.theme.colors.dark};
+  border-bottom: 5px double ${props => props.theme.colors.dark};
+  text-align: center;
+  margin: 15px;
+`
