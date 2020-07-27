@@ -63,7 +63,11 @@ function Dogstagram() {
       <Images>
         {pictures.map(({ node }) => (
           <ImgBox>
-            <a href={`https://www.instagram.com/p/${node.id}/`} target="_blank">
+            <a
+              href={`https://www.instagram.com/p/${node.id}/`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Img
                 className="dogstagram___img"
                 fluid={node.localFile.childImageSharp.fluid}

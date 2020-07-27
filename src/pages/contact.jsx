@@ -52,6 +52,7 @@ function Contact() {
         <h2>Visit</h2>
         <p>The Market at Luscombe Farms</p>
         <iframe
+          title="luscombe-map"
           className="map-1"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.8924540731714!2d-96.57324068454211!3d33.321626980811004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c72709decad9f%3A0xb9cc805425d70991!2sLuscombe%20Farm%20Specialty%20Food%20Store!5e0!3m2!1sen!2sbe!4v1595860680095!5m2!1sen!2sbe"
           width="280"
@@ -59,17 +60,16 @@ function Contact() {
           frameBorder="0"
           allowFullScreen
           aria-hidden="false"
-          tabIndex="0"
         ></iframe>
         <p>Denison Farmers Market</p>
         <iframe
+          title="denison-map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.180844244569!2d-96.54764442009964!3d33.755992380782075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c85abd2206fe1%3A0x3d961609e51bad11!2sDowntown%20Denison%20Farmers%20Market!5e0!3m2!1sen!2sbe!4v1595860721838!5m2!1sen!2sbe"
           width="280"
           height="350"
           frameBorder="0"
           allowFullScreen
           aria-hidden="false"
-          tabIndex="0"
         ></iframe>
       </Section>
       <Section>

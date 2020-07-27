@@ -6,7 +6,6 @@ import Header from '../components/Header'
 import PromoBanner from '../components/PromoBanner'
 import ContextProvider from '~/provider/ContextProvider'
 import Footer from '../components/Footer'
-import MobileMenu from '../components/MobileMenu'
 
 const Container = styled.div`
   display: flex;

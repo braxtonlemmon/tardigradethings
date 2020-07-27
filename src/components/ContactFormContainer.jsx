@@ -34,7 +34,7 @@ function ContactFormContainer() {
         !(
           lastAtPos < lastDotPos &&
           lastAtPos > 0 &&
-          data['email'].indexOf('@@') == -1 &&
+          data['email'].indexOf('@@') === -1 &&
           lastDotPos > 2 &&
           data['email'].length - lastDotPos > 2
         )
