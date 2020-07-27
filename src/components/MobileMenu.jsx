@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -20,18 +21,59 @@ const Wrapper = styled.div`
   }
 `
 
+const MenuList = styled.ul`
+  width: 100%;
+  background: ${props => props.theme.colors.bone};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 20px;
+  li {
+    border-bottom: 1px solid ${props => props.theme.colors.dark};
+    width: 50%;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  a {
+    margin: 5px 0;
+    padding: 15px 10px;
+    color: ${props => props.theme.colors.dark};
+    width: 100%;
+    height: 100%;
+  }
+`
+
 function MobileMenu({ isMenuOpen }) {
+  useEffect(() => {
+    const body = document.querySelector('body')
+    isMenuOpen
+      ? (body.style.overflow = 'hidden')
+      : (body.style.overflow = 'visible')
+  }, [isMenuOpen])
+
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
-      <p>yoasdfkjl</p>
+      <MenuList>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/shop">Shop</Link>
+        </li>
+        <li>
+          <Link to="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </MenuList>
     </Wrapper>
   )
 }

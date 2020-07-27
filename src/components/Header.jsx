@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { AiOutlineShopping } from 'react-icons/ai'
 import Hamburger from './Hamburger'
-import logo from '../images/dog-bone.svg'
+import logo from '../images/bone.svg'
 import MobileMenu from './MobileMenu'
 
 const Container = styled.div`

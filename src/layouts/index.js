@@ -27,10 +27,16 @@ const Main = styled.div`
 `
 
 const Layout = ({ children }) => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setMenuOpen] = useState(true)
 
   const handleMenuClick = () => {
     setMenuOpen(!isMenuOpen)
+  }
+
+  const handleMainClick = () => {
+    if (isMenuOpen) {
+      setMenuOpen(false)
+    }
   }
 
   return (
@@ -46,7 +52,7 @@ const Layout = ({ children }) => {
           }
         `}
         render={data => (
-          <Container>
+          <Container onClick={handleMainClick}>
             <PromoBanner />
             <Header
               siteTitle={data.site.siteMetadata.title}

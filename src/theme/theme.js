@@ -5,6 +5,7 @@ const theme = {
     card: '#e08982',
     pb: '#b98e52',
     light: '#dfb27c',
+    bone: '#dfcaae',
   },
 
   fontSize: {

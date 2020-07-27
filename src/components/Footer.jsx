@@ -7,7 +7,7 @@ import { FaFacebookMessenger } from 'react-icons/fa'
 const Wrapper = styled.footer`
   width: 100%;
   padding: 20px;
-  background: ${props => props.theme.colors.pb};
+  background: ${props => props.theme.colors.bone};
   margin-top: 15px;
   & > * {
     margin: 0 auto;
