@@ -1,7 +1,32 @@
 import React, { useContext } from 'react'
-
+import styled from 'styled-components'
 import StoreContext from '~/context/StoreContext'
 import LineItem from './LineItem'
+
+import Button from '~/components/Button'
+
+const Wrapper = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-end;
+`
+
+const Price = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+`
+
+const ExtraInfo = styled.p`
+  width: 80%;
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 15px;
+`
 
 const Cart = () => {
   const {
@@ -17,24 +42,27 @@ const Cart = () => {
   ))
 
   return (
-    <div>
+    <Wrapper>
       {lineItems}
-      <h2>Subtotal</h2>
-      <p>$ {checkout.subtotalPrice}</p>
-      <br />
+      <Price>
+        <h2>Subtotal</h2>
+        <p>$ {checkout.subtotalPrice}</p>
+      </Price>
+      {/* <br />
       <h2>Taxes</h2>
       <p>$ {checkout.totalTax}</p>
-      <br />
-      <h2>Total</h2>
+      <br /> */}
+      {/* <h2>Total</h2>
       <p>$ {checkout.totalPrice}</p>
-      <br />
-      <button
+      <br /> */}
+      <ExtraInfo>Taxes and Shipping calculated at checkout</ExtraInfo>
+      <Button
         onClick={handleCheckout}
         disabled={checkout.lineItems.length === 0}
       >
         Check out
-      </button>
-    </div>
+      </Button>
+    </Wrapper>
   )
 }
 
