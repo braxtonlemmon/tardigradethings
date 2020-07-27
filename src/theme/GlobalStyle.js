@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     overflow-anchor: none;
+    overflow-y: scroll;
   }
 
   body {
