@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import ContactFormComponent from './ContactFormComponent'
-import { navigate } from 'gatsby'
+import React, { useState } from 'react';
+import ContactFormComponent from './ContactFormComponent';
+import { navigate } from 'gatsby';
+import CartPopup from './CartPopup';
 
 function ContactFormContainer() {
   const [data, setData] = useState({
@@ -9,27 +10,27 @@ function ContactFormContainer() {
     subject: '',
     message: '',
     phone: '',
-  })
-  const [formErrors, setFormErrors] = useState({})
-  const [showErrors, setShowErrors] = useState(false)
+  });
+  const [formErrors, setFormErrors] = useState({});
+  const [showErrors, setShowErrors] = useState(false);
 
   const handleChange = e => {
-    const { name, value } = e.target
-    setData({ ...data, [name]: value })
-  }
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
 
   const handleValidation = () => {
-    let errors = {}
-    let formIsValid = true
+    let errors = {};
+    let formIsValid = true;
 
     if (!data['email']) {
-      formIsValid = false
-      errors['email'] = 'Cannot be empty'
+      formIsValid = false;
+      errors['email'] = 'Cannot be empty';
     }
 
     if (typeof data['email'] !== 'undefined') {
-      let lastAtPos = data['email'].lastIndexOf('@')
-      let lastDotPos = data['email'].lastIndexOf('.')
+      let lastAtPos = data['email'].lastIndexOf('@');
+      let lastDotPos = data['email'].lastIndexOf('.');
       if (
         !(
           lastAtPos < lastDotPos &&
@@ -39,16 +40,16 @@ function ContactFormContainer() {
           data['email'].length - lastDotPos > 2
         )
       ) {
-        formIsValid = false
-        errors['email'] = 'Email is not valid'
+        formIsValid = false;
+        errors['email'] = 'Email is not valid';
       }
     }
-    setFormErrors(errors)
-    return formIsValid
-  }
+    setFormErrors(errors);
+    return formIsValid;
+  };
 
   const handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     if (handleValidation()) {
       fetch('https://pbdt-git-master.braxtonlemmon.vercel.app/api/send-mail', {
         method: 'POST',
@@ -66,18 +67,18 @@ function ContactFormContainer() {
       })
         .then(response => {
           if (response.ok && response.status === 200) {
-            setData({ from: '', email: '', subject: '', message: '' })
-            setShowErrors(false)
-            navigate('/ThankYou')
-            return response.json()
+            setData({ from: '', email: '', subject: '', message: '' });
+            setShowErrors(false);
+            navigate('/ThankYou');
+            return response.json();
           }
-          throw new Error('Network response was not okay')
+          throw new Error('Network response was not okay');
         })
-        .catch(err => console.log(err.message))
+        .catch(err => console.log(err.message));
     } else {
-      setShowErrors(true)
+      setShowErrors(true);
     }
-  }
+  };
 
   return (
     <>
@@ -88,7 +89,8 @@ function ContactFormContainer() {
         showErrors={showErrors}
         formErrors={formErrors}
       />
+      <CartPopup />
     </>
-  )
+  );
 }
-export default ContactFormContainer
+export default ContactFormContainer;

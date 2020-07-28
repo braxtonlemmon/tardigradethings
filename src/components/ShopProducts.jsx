@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
+  position: relative;
 `;
 
 function ShopProducts() {

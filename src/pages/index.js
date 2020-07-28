@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Dogstagram from '../components/Dogstagram'
-import SEO from '~/components/seo'
-import ProductGrid from '~/components/ProductGrid'
-import Hero from '~/components/Hero'
-import Slider from '~/components/Slider'
-import { HomeHeading } from '~/utils/styles'
-import styled from 'styled-components'
-import ShopProducts from '~/components/ShopProducts'
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import Dogstagram from '../components/Dogstagram';
+import SEO from '~/components/seo';
+import ProductGrid from '~/components/ProductGrid';
+import Hero from '~/components/Hero';
+import Slider from '~/components/Slider';
+import { HomeHeading } from '~/utils/styles';
+import styled from 'styled-components';
+import ShopProducts from '~/components/ShopProducts';
 
 const MainContent = styled.div`
   display: flex;
@@ -20,10 +20,10 @@ const MainContent = styled.div`
     margin: 15px auto;
     line-height: 1.5em;
   }
-`
+`;
 
 function IndexPage({ data }) {
-  const images = data.allFile.edges
+  const images = data.allFile.edges;
   return (
     <>
       <SEO
@@ -51,10 +51,10 @@ function IndexPage({ data }) {
       <ShopProducts />
       <Dogstagram />
     </>
-  )
+  );
 }
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
@@ -72,4 +72,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

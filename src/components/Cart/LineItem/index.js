@@ -129,7 +129,6 @@ const LineItem = props => {
     }
   };
 
-  console.log(item);
   return (
     // <Wrapper>
     //   {/* {console.log(item)} */}
