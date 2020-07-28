@@ -9,13 +9,48 @@ const Wrapper = styled.form`
   flex-direction: column;
   align-items: flex-start;
   justify-content: baseline;
-  & > * {
-    margin-bottom: 10px;
-    border-bottom: 1px solid black;
+  button {
+    align-self: center;
+    margin: 15px;
   }
 `;
 const Row = styled.div`
   display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid ${props => props.theme.colors.card};
+  width: 100%;
+  &:first-child {
+    border-bottom: none;
+    border-top: 1px solid ${props => props.theme.colors.card};
+    padding: 20px 0 0 0;
+  }
+  label {
+    cursor: pointer;
+  }
+  select {
+    border-radius: 5px;
+    border: 1px solid ${props => props.theme.colors.darkLight};
+    padding: 5px;
+    color: black;
+    background: white;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+  }
+  input[type='number'] {
+    width: 80px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid ${props => props.theme.colors.darkLight};
+  }
+  input[type='radio'] {
+    cursor: pointer;
+  }
+  & > * {
+    margin-right: 15px;
+  }
 `;
 
 function ShopFormComponent({
@@ -58,7 +93,7 @@ function ShopFormComponent({
         <label htmlFor="subscription">Subscription (save 5%)</label>
       </Row>
       <Row>
-        <label htmlFor="shopifyId">Shape</label>
+        <label htmlFor="shopifyId">Shape:</label>
         <select
           name="shopifyId"
           id="shopifyId"
@@ -73,7 +108,7 @@ function ShopFormComponent({
         </select>
       </Row>
       <Row>
-        <label htmlFor="qty">Qty</label>
+        <label htmlFor="qty">Qty:</label>
         <input
           type="number"
           name="qty"
