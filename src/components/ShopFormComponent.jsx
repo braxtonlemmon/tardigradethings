@@ -24,6 +24,7 @@ const Wrapper = styled.form`
     align-self: center;
     padding: 10px 0;
     margin: 0;
+    font-size: ${props => props.theme.fontSize.larger};
   }
   @media (min-width: 412px) {
     width: 390px;

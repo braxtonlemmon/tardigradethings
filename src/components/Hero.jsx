@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import Button from './Button'
+import React from 'react';
+import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import Button from './Button';
 
 const Wrapper = styled.div`
   position: relative;
@@ -18,7 +18,10 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     height: 500px;
   }
-`
+  @media (min-width: 1000px) {
+    height: 700px;
+  }
+`;
 
 const DimLayer = styled.div`
   position: absolute;
@@ -34,7 +37,7 @@ const DimLayer = styled.div`
     rgba(0, 0, 0, 0)
   );
   z-index: 11;
-`
+`;
 
 const Info = styled.div`
   position: absolute;
@@ -55,7 +58,7 @@ const Info = styled.div`
     margin-bottom: 20px;
     font-weight: bold;
   }
-`
+`;
 
 function Hero() {
   const data = useStaticQuery(graphql`
@@ -68,8 +71,8 @@ function Hero() {
         }
       }
     }
-  `)
-  console.log(data)
+  `);
+  console.log(data);
   return (
     <Wrapper>
       <Img
@@ -85,7 +88,7 @@ function Hero() {
         </Link>
       </Info>
     </Wrapper>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -22,10 +22,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     scroll-behavior: smooth;
     overflow-anchor: none;
-    overflow-y: scroll;
   }
 
   body {
+    overflow-y: scroll;
     margin: 0;
   }
 
@@ -33,6 +33,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: #380807;
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

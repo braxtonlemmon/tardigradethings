@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ContactFormComponent from './ContactFormComponent';
 import { navigate } from 'gatsby';
-import CartPopup from './CartPopup';
 
 function ContactFormContainer() {
   const [data, setData] = useState({
@@ -81,16 +80,13 @@ function ContactFormContainer() {
   };
 
   return (
-    <>
-      <ContactFormComponent
-        data={data}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        showErrors={showErrors}
-        formErrors={formErrors}
-      />
-      <CartPopup />
-    </>
+    <ContactFormComponent
+      data={data}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      showErrors={showErrors}
+      formErrors={formErrors}
+    />
   );
 }
 export default ContactFormContainer;

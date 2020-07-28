@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   p {
     padding: 5px 10px;
   }
-`
+`;
 
 const MenuList = styled.ul`
   width: 100%;
@@ -45,15 +45,21 @@ const MenuList = styled.ul`
     width: 100%;
     height: 100%;
   }
-`
+`;
 
 function MobileMenu({ isMenuOpen }) {
-  useEffect(() => {
-    const body = document.querySelector('body')
-    isMenuOpen
-      ? (body.style.overflow = 'hidden')
-      : (body.style.overflow = 'visible')
-  }, [isMenuOpen])
+  // useEffect(() => {
+  //   const body = document.querySelector('body');
+  //   if (isMenuOpen) {
+  //     body.style.overflow = 'hidden';
+  //     body.style.overflowY = 'scroll';
+  //   } else {
+  //     body.style.overflow = 'visible';
+  //   }
+  //   // isMenuOpen
+  //   //   ? (body.style.overflow = 'hidden')
+  //   //   : (body.style.overflow = 'visible')
+  // }, [isMenuOpen]);
 
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
@@ -75,7 +81,7 @@ function MobileMenu({ isMenuOpen }) {
         </li>
       </MenuList>
     </Wrapper>
-  )
+  );
 }
 
-export default MobileMenu
+export default MobileMenu;
