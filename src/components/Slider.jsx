@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import styled, { keyframes } from 'styled-components'
-import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const slide = keyframes`
   from {
@@ -11,7 +12,7 @@ const slide = keyframes`
   to {
     opacity: 1;
   }
-`
+`;
 const Container = styled.div`
   width: 300px;
   height: 400px;
@@ -24,7 +25,7 @@ const Container = styled.div`
     height: 600px;
     width: 600px;
   }
-`
+`;
 
 const ImgWrapper = styled.div`
   position: relative;
@@ -36,7 +37,7 @@ const ImgWrapper = styled.div`
     height: 100%;
     width: 100%;
   }
-`
+`;
 
 const FakeImg = styled.div`
   position: absolute;
@@ -46,7 +47,7 @@ const FakeImg = styled.div`
   height: 100%;
   box-shadow: inset 0 0 50px black;
   z-index: 1;
-`
+`;
 
 const ButtonsBox = styled.div`
   display: ${props => (props.multiple === true ? 'flex' : 'none')};
@@ -57,7 +58,7 @@ const ButtonsBox = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const ArrowBox = styled.div`
   display: flex;
@@ -83,20 +84,40 @@ const ArrowBox = styled.div`
     color: white;
     transform: scale(1.05);
   }
-`
+`;
 
-function ImageSlider({ images }) {
-  const [index, setIndex] = useState(0)
+function ImageSlider() {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allFile(
+          filter: { relativeDirectory: { eq: "slider" }, ext: { eq: ".jpg" } }
+        ) {
+          edges {
+            node {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+  const images = data.allFile.edges;
+  const [index, setIndex] = useState(1);
 
-  const length = images.length - 1
+  const length = images.length - 1;
 
   const handleNext = () => {
-    index === length ? setIndex(0) : setIndex(index + 1)
-  }
+    index === length ? setIndex(0) : setIndex(index + 1);
+  };
 
   const handlePrevious = () => {
-    index === 0 ? setIndex(length) : setIndex(index - 1)
-  }
+    index === 0 ? setIndex(length) : setIndex(index - 1);
+  };
 
   return (
     <Container>
@@ -118,11 +139,11 @@ function ImageSlider({ images }) {
         </ButtonsBox>
       </ImgWrapper>
     </Container>
-  )
+  );
 }
 
 ImageSlider.propTypes = {
   images: PropTypes.array,
-}
+};
 
-export default ImageSlider
+export default ImageSlider;

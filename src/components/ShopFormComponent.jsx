@@ -57,35 +57,18 @@ function ShopFormComponent({
         />
         <label htmlFor="subscription">Subscription (save 5%)</label>
       </Row>
-      {/* <Row>
+      <Row>
         <label htmlFor="shopifyId">Shape</label>
         <select
           name="shopifyId"
           id="shopifyId"
           value={data.shopifyId}
           onChange={e => {
-            handleVariantChange(e);
             handleChange(e);
           }}
         >
           {product.variants.map(variant => (
             <option value={variant.shopifyId}>{variant.title}</option>
-          ))}
-        </select>
-      </Row> */}
-      <Row>
-        <label htmlFor="variant">Shape</label>
-        <select
-          name="variant"
-          id="variant"
-          value={data.variant}
-          onChange={e => {
-            handleVariantChange(e);
-            handleChange(e);
-          }}
-        >
-          {product.variants.map(variant => (
-            <option value={variant}>{variant.title}</option>
           ))}
         </select>
       </Row>

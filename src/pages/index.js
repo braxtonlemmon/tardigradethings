@@ -22,8 +22,7 @@ const MainContent = styled.div`
   }
 `;
 
-function IndexPage({ data }) {
-  const images = data.allFile.edges;
+function IndexPage() {
   return (
     <>
       <SEO
@@ -45,9 +44,8 @@ function IndexPage({ data }) {
           covered under the Texas Cottage Food Law. For more information, please
           read more on the blog.
         </p>
-        <Slider images={images} />
+        <Slider />
       </MainContent>
-      {/* <ProductGrid /> */}
       <ShopProducts />
       <Dogstagram />
     </>
@@ -55,21 +53,3 @@ function IndexPage({ data }) {
 }
 
 export default IndexPage;
-
-export const pageQuery = graphql`
-  query {
-    allFile(
-      filter: { relativeDirectory: { eq: "slider" }, ext: { eq: ".jpg" } }
-    ) {
-      edges {
-        node {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`;
