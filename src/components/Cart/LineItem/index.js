@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import React, { useContext, useState } from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import StoreContext from '~/context/StoreContext'
+import StoreContext from '~/context/StoreContext';
 // import { Wrapper } from './styles'
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai'
-import Button from '~/components/Button'
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
+import Button from '~/components/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
-`
+`;
 
 const TopRow = styled.div`
   width: 100%;
@@ -29,7 +29,7 @@ const TopRow = styled.div`
   & > * {
     margin-right: 15px;
   }
-`
+`;
 
 const BottomRow = styled.div`
   width: 100%;
@@ -48,7 +48,7 @@ const BottomRow = styled.div`
     width: 80px;
     text-align: center;
   }
-`
+`;
 
 const Qty = styled.div`
   display: flex;
@@ -73,16 +73,16 @@ const Qty = styled.div`
     width: 30px;
     color: rgba(0, 0, 0, 0.6);
   }
-`
+`;
 
 const LineItem = props => {
-  const { item } = props
+  const { item } = props;
   const {
     updateLineItem,
     removeLineItem,
     store: { client, checkout },
-  } = useContext(StoreContext)
-  const [qty, setQty] = useState(item.quantity)
+  } = useContext(StoreContext);
+  const [qty, setQty] = useState(item.quantity);
 
   const variantImage = item.variant.image ? (
     <img
@@ -90,25 +90,25 @@ const LineItem = props => {
       alt={`${item.title} product shot`}
       height="60px"
     />
-  ) : null
+  ) : null;
 
   const selectedOptions = item.variant.selectedOptions
     ? item.variant.selectedOptions.map(
         option => `${option.name}: ${option.value} `
       )
-    : null
+    : null;
 
   const handleRemove = () => {
-    removeLineItem(client, checkout.id, item.id)
-  }
+    removeLineItem(client, checkout.id, item.id);
+  };
 
   const handleQtyChange = e => {
-    setQty(e.target.value)
-    updateLineItem(client, checkout.id, item.id, e.target.value)
+    setQty(e.target.value);
+    updateLineItem(client, checkout.id, item.id, e.target.value);
     // if (e.target.value < 1) {
     //   removeLineItem(client, checkout.id, item.id)
     // }
-  }
+  };
 
   // const handleChange = e => {
   //   const { name, value } = e.target
@@ -116,20 +116,20 @@ const LineItem = props => {
   // }
 
   const increaseQtyOne = () => {
-    setQty(item.quantity + 1)
-    updateLineItem(client, checkout.id, item.id, item.quantity + 1)
-  }
+    setQty(item.quantity + 1);
+    updateLineItem(client, checkout.id, item.id, item.quantity + 1);
+  };
 
   const decreaseQtyOne = () => {
     if (item.quantity === 1) {
-      removeLineItem(client, checkout.id, item.id)
+      removeLineItem(client, checkout.id, item.id);
     } else {
-      setQty(item.quantity - 1)
-      updateLineItem(client, checkout.id, item.id, item.quantity - 1)
+      setQty(item.quantity - 1);
+      updateLineItem(client, checkout.id, item.id, item.quantity - 1);
     }
-  }
+  };
 
-  console.log(item)
+  console.log(item);
   return (
     // <Wrapper>
     //   {/* {console.log(item)} */}
@@ -165,6 +165,8 @@ const LineItem = props => {
             type="number"
             id="qty"
             name="qty"
+            min="0"
+            step="1"
             onChange={e => handleQtyChange(e)}
             value={qty}
           />
@@ -179,7 +181,7 @@ const LineItem = props => {
         </p>
       </BottomRow>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default LineItem
+export default LineItem;
