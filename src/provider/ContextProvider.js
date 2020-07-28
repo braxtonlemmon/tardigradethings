@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Client from 'shopify-buy';
 
 import Context from '~/context/StoreContext';
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+
 // To connect with Shopify
 const client = Client.buildClient({
   storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
