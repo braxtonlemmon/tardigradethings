@@ -1,8 +1,8 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Dogstagram from '../components/Dogstagram'
 import SEO from '~/components/seo'
-// import ProductGrid from '~/components/ProductGrid'
+import ProductGrid from '~/components/ProductGrid'
 import Hero from '~/components/Hero'
 import Slider from '~/components/Slider'
 import { HomeHeading } from '~/utils/styles'
@@ -46,7 +46,7 @@ function IndexPage({ data }) {
         </p>
         <Slider images={images} />
       </MainContent>
-      {/* <ProductGrid /> */}
+      <ProductGrid />
       <Dogstagram />
     </>
   )

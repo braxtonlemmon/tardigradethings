@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
@@ -16,6 +16,9 @@ const Wrapper = styled.div`
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
+  .subtotal {
+    font-weight: bold;
+  }
 `
 
 const TopRow = styled.div`
@@ -36,6 +39,18 @@ const BottomRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  input {
+    width: 80px;
+    text-align: center;
+  }
 `
 
 const Qty = styled.div`
@@ -66,9 +81,11 @@ const Qty = styled.div`
 const LineItem = props => {
   const { item } = props
   const {
+    updateLineItem,
     removeLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
+  const [qty, setQty] = useState(item.quantity)
 
   const variantImage = item.variant.image ? (
     <img
@@ -87,6 +104,34 @@ const LineItem = props => {
   const handleRemove = () => {
     removeLineItem(client, checkout.id, item.id)
   }
+
+  const handleQtyChange = e => {
+    setQty(e.target.value)
+    updateLineItem(client, checkout.id, item.id, e.target.value)
+    // if (e.target.value < 1) {
+    //   removeLineItem(client, checkout.id, item.id)
+    // }
+  }
+
+  // const handleChange = e => {
+  //   const { name, value } = e.target
+  //   setData({ ...data, [name]: value })
+  // }
+
+  const increaseQtyOne = () => {
+    setQty(item.quantity + 1)
+    updateLineItem(client, checkout.id, item.id, item.quantity + 1)
+  }
+
+  const decreaseQtyOne = () => {
+    if (item.quantity === 1) {
+      removeLineItem(client, checkout.id, item.id)
+    } else {
+      setQty(item.quantity - 1)
+      updateLineItem(client, checkout.id, item.id, item.quantity - 1)
+    }
+  }
+
   console.log(item)
   return (
     // <Wrapper>
@@ -113,12 +158,28 @@ const LineItem = props => {
       </TopRow>
       <BottomRow>
         <Qty>
-          <AiOutlineMinusCircle className="qty-button" />
-          <div className="qty-num">{item.quantity}</div>
-          <AiOutlinePlusCircle className="qty-button" />
+          <AiOutlineMinusCircle
+            className="qty-button"
+            onClick={decreaseQtyOne}
+          />
+          {/* <div className="qty-num">{item.quantity}</div> */}
+          <input
+            className="qty-input"
+            type="number"
+            id="qty"
+            name="qty"
+            onChange={e => handleQtyChange(e)}
+            value={qty}
+          />
+          <AiOutlinePlusCircle
+            className="qty-button"
+            onClick={increaseQtyOne}
+          />
         </Qty>
         <p>$ {item.variant.price}</p>
-        <p>$ {(item.quantity * item.variant.price).toFixed(2)}</p>
+        <p className="subtotal">
+          $ {(item.quantity * item.variant.price).toFixed(2)}
+        </p>
       </BottomRow>
     </Wrapper>
   )

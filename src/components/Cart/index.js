@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import StoreContext from '~/context/StoreContext'
 import LineItem from './LineItem'
-
+import { FaDog } from 'react-icons/fa'
+import { Link } from 'gatsby'
 import Button from '~/components/Button'
 
 const Wrapper = styled.div`
@@ -11,6 +12,21 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-items: center;
   align-items: flex-end;
+  .subtotal {
+    font-weight: bold;
+  }
+`
+
+const SadWrapper = styled(Wrapper)`
+  align-items: center;
+  p {
+    text-align: center;
+    width: 70%;
+    line-height: 1.5em;
+  }
+  & > * {
+    margin-bottom: 15px;
+  }
 `
 
 const Price = styled.div`
@@ -41,29 +57,37 @@ const Cart = () => {
     <LineItem key={item.id.toString()} item={item} />
   ))
 
-  return (
-    <Wrapper>
-      {lineItems}
-      <Price>
-        <h2>Subtotal</h2>
-        <p>$ {checkout.subtotalPrice}</p>
-      </Price>
-      {/* <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
-      <br /> */}
-      {/* <h2>Total</h2>
-      <p>$ {checkout.totalPrice}</p>
-      <br /> */}
-      <ExtraInfo>Taxes and Shipping calculated at checkout</ExtraInfo>
-      <Button
-        onClick={handleCheckout}
-        disabled={checkout.lineItems.length === 0}
-      >
-        Check out
-      </Button>
-    </Wrapper>
-  )
+  if (lineItems.length < 1) {
+    return (
+      <SadWrapper>
+        <FaDog size={150} />
+        <p>
+          Oh no! There are no peanut butter treats in your cart. Time to fix
+          that!
+        </p>
+        <Link to="/shop">
+          <Button>SHOP</Button>
+        </Link>
+      </SadWrapper>
+    )
+  } else {
+    return (
+      <Wrapper>
+        {lineItems}
+        <Price>
+          <h2>Subtotal</h2>
+          <p className="subtotal">$ {checkout.subtotalPrice}</p>
+        </Price>
+        <ExtraInfo>Taxes and Shipping calculated at checkout</ExtraInfo>
+        <Button
+          onClick={handleCheckout}
+          disabled={checkout.lineItems.length === 0}
+        >
+          Check out
+        </Button>
+      </Wrapper>
+    )
+  }
 }
 
 export default Cart
