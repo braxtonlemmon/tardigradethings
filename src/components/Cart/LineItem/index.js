@@ -16,9 +16,6 @@ const Wrapper = styled.div`
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
-  .subtotal {
-    font-weight: bold;
-  }
 `
 
 const TopRow = styled.div`

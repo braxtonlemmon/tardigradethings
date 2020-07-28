@@ -7,6 +7,7 @@ import Hero from '~/components/Hero'
 import Slider from '~/components/Slider'
 import { HomeHeading } from '~/utils/styles'
 import styled from 'styled-components'
+import ShopProducts from '~/components/ShopProducts'
 
 const MainContent = styled.div`
   display: flex;
@@ -46,7 +47,8 @@ function IndexPage({ data }) {
         </p>
         <Slider images={images} />
       </MainContent>
-      <ProductGrid />
+      {/* <ProductGrid /> */}
+      <ShopProducts />
       <Dogstagram />
     </>
   )

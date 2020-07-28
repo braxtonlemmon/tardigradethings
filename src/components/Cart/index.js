@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import StoreContext from '~/context/StoreContext'
 import LineItem from './LineItem'
 import { FaDog } from 'react-icons/fa'
+import { GrMoney } from 'react-icons/gr'
 import { Link } from 'gatsby'
 import Button from '~/components/Button'
 
@@ -14,6 +15,12 @@ const Wrapper = styled.div`
   align-items: flex-end;
   .subtotal {
     font-weight: bold;
+  }
+  .subtotal-label {
+    display: flex;
+    & > * {
+      margin-right: 10px;
+    }
   }
 `
 
@@ -75,7 +82,10 @@ const Cart = () => {
       <Wrapper>
         {lineItems}
         <Price>
-          <h2>Subtotal</h2>
+          <div className="subtotal-label">
+            <h2>Subtotal</h2>
+            <GrMoney />
+          </div>
           <p className="subtotal">$ {checkout.subtotalPrice}</p>
         </Price>
         <ExtraInfo>Taxes and Shipping calculated at checkout</ExtraInfo>
