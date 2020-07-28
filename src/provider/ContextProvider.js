@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import Client from 'shopify-buy'
+import React, { useState, useEffect } from 'react';
+import Client from 'shopify-buy';
 
-import Context from '~/context/StoreContext'
-
+import Context from '~/context/StoreContext';
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 // To connect with Shopify
 const client = Client.buildClient({
-  storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-  domain: `${process.env.SHOP_NAME}.myshopify.com`,
-})
+  storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
+  domain: `${process.env.GATSBY_SHOP_NAME}.myshopify.com`,
+});
 
 const ContextProvider = ({ children }) => {
   let initialStoreState = {
@@ -16,70 +18,70 @@ const ContextProvider = ({ children }) => {
     checkout: { lineItems: [] },
     products: [],
     shop: {},
-  }
+  };
 
-  const [store, updateStore] = useState(initialStoreState)
+  const [store, updateStore] = useState(initialStoreState);
 
-  let isRemoved = false
+  let isRemoved = false;
 
   // triggered by store.client.checkout
   useEffect(() => {
     // function definition, will be run at end of this useEffect
     const initializeCheckout = async () => {
       // Check for an existing cart.
-      const isBrowser = typeof window !== 'undefined'
+      const isBrowser = typeof window !== 'undefined';
 
       const existingCheckoutID = isBrowser
         ? localStorage.getItem('shopify_checkout_id')
-        : null
+        : null;
 
       // Updates the checkout
       const setCheckoutInState = checkout => {
         if (isBrowser) {
-          localStorage.setItem('shopify_checkout_id', checkout.id)
+          localStorage.setItem('shopify_checkout_id', checkout.id);
         }
 
         updateStore(prevState => {
-          return { ...prevState, checkout }
-        })
-      }
+          return { ...prevState, checkout };
+        });
+      };
 
       // Creates a new checkout on the client
-      const createNewCheckout = () => store.client.checkout.create()
+      const createNewCheckout = () => store.client.checkout.create();
 
       // Gets a previously created checkout
-      const fetchCheckout = id => store.client.checkout.fetch(id)
+      const fetchCheckout = id => store.client.checkout.fetch(id);
 
       // If checkout id exists, run this
       if (existingCheckoutID) {
         try {
-          const checkout = await fetchCheckout(existingCheckoutID)
+          const checkout = await fetchCheckout(existingCheckoutID);
           // Make sure this cart hasn’t already been purchased.
           if (!isRemoved && !checkout.completedAt) {
-            setCheckoutInState(checkout)
-            return
+            setCheckoutInState(checkout);
+            return;
           }
         } catch (e) {
-          localStorage.setItem('shopify_checkout_id', null)
+          localStorage.setItem('shopify_checkout_id', null);
         }
       }
 
       // Creates new checkout
-      const newCheckout = await createNewCheckout()
+      const newCheckout = await createNewCheckout();
       if (!isRemoved) {
-        setCheckoutInState(newCheckout)
+        setCheckoutInState(newCheckout);
       }
-    }
+    };
 
-    initializeCheckout()
-  }, [store.client.checkout])
+    initializeCheckout();
+  }, [store.client.checkout]);
 
   useEffect(
     () => () => {
-      isRemoved = true
+      isRemoved = true;
     },
     []
-  )
+  );
 
   return (
     <Context.Provider
@@ -91,28 +93,28 @@ const ContextProvider = ({ children }) => {
 
         addVariantToCart: (variantId, quantity) => {
           if (variantId === '' || !quantity) {
-            console.error('Both a size and quantity are required.')
-            return
+            console.error('Both a size and quantity are required.');
+            return;
           }
 
           updateStore(prevState => {
-            return { ...prevState, adding: true }
-          })
+            return { ...prevState, adding: true };
+          });
 
-          const { checkout, client } = store
+          const { checkout, client } = store;
 
-          const checkoutId = checkout.id
+          const checkoutId = checkout.id;
           const lineItemsToUpdate = [
             { variantId, quantity: parseInt(quantity, 10) },
-          ]
+          ];
 
           return client.checkout
             .addLineItems(checkoutId, lineItemsToUpdate)
             .then(checkout => {
               updateStore(prevState => {
-                return { ...prevState, checkout, adding: false }
-              })
-            })
+                return { ...prevState, checkout, adding: false };
+              });
+            });
         },
 
         removeLineItem: (client, checkoutID, lineItemID) => {
@@ -120,28 +122,28 @@ const ContextProvider = ({ children }) => {
             .removeLineItems(checkoutID, [lineItemID])
             .then(res => {
               updateStore(prevState => {
-                return { ...prevState, checkout: res }
-              })
-            })
+                return { ...prevState, checkout: res };
+              });
+            });
         },
 
         updateLineItem: (client, checkoutID, lineItemID, quantity) => {
           const lineItemsToUpdate = [
             { id: lineItemID, quantity: parseInt(quantity, 10) },
-          ]
+          ];
 
           return client.checkout
             .updateLineItems(checkoutID, lineItemsToUpdate)
             .then(res => {
               updateStore(prevState => {
-                return { ...prevState, checkout: res }
-              })
-            })
+                return { ...prevState, checkout: res };
+              });
+            });
         },
       }}
     >
       {children}
     </Context.Provider>
-  )
-}
-export default ContextProvider
+  );
+};
+export default ContextProvider;
