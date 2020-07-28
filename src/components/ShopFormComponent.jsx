@@ -5,22 +5,41 @@ import Button from './Button';
 import StoreContext from '~/context/StoreContext';
 
 const Wrapper = styled.form`
+  width: 290px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: baseline;
+  /* border: 1px solid black;
+   */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin: 10px 0 30px 0;
   button {
     align-self: center;
     margin: 15px;
   }
+  h1 {
+    text-align: center;
+    align-self: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+  @media (min-width: 412px) {
+    width: 390px;
+  }
+  @media (min-width: 600px) {
+    width: 550px;
+  }
 `;
+
 const Row = styled.div`
   display: flex;
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid ${props => props.theme.colors.card};
   width: 100%;
-  &:first-child {
+  &:nth-child(2) {
     border-bottom: none;
     border-top: 1px solid ${props => props.theme.colors.card};
     padding: 20px 0 0 0;
@@ -68,6 +87,7 @@ function ShopFormComponent({
 
   return (
     <Wrapper>
+      <h1>Order</h1>
       <Row>
         <input
           checked={data.type === 'once'}

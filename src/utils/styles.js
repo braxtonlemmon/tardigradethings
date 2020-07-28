@@ -1,14 +1,14 @@
-import React from 'react'
-import Image from 'gatsby-image'
-import styled from 'styled-components'
-import { Global, css } from '@emotion/core'
+import React from 'react';
+import Image from 'gatsby-image';
+import styled from 'styled-components';
+import { Global, css } from '@emotion/core';
 
 export const breakpoints = {
   s: 576,
   m: 768,
   l: 992,
   xl: 1200,
-}
+};
 
 export const GlobalStyle = props => (
   <Global
@@ -24,7 +24,7 @@ export const GlobalStyle = props => (
       }
     `}
   />
-)
+);
 
 export const Img = styled(Image)`
   max-width: 100 %;
@@ -36,12 +36,12 @@ export const Img = styled(Image)`
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-`
+`;
 
 export const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-`
+`;
 
 export const TwoColumnGrid = styled.div`
   display: grid;
@@ -52,15 +52,15 @@ export const TwoColumnGrid = styled.div`
   @media (max-width: ${breakpoints.l}px) {
     display: block;
   }
-`
+`;
 
 export const GridLeft = styled.div`
   grid-area: left;
-`
+`;
 
 export const GridRight = styled.div`
   grid-area: right;
-`
+`;
 
 export const MainContent = styled.main`
   margin-top: 80px;
@@ -70,12 +70,12 @@ export const MainContent = styled.main`
     margin-top: 40px;
     margin-bottom: 20px;
   }
-`
+`;
 
 export const PageWrapper = styled.div`
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +83,7 @@ export const PageWrapper = styled.div`
     font-size: ${props => props.theme.fontSize.larger};
     margin-bottom: 20px;
   }
-`
+`;
 
 export const HomeHeading = styled.h2`
   font-size: ${props => props.theme.fontSize.larger};
@@ -93,4 +93,4 @@ export const HomeHeading = styled.h2`
   border-bottom: 3px solid ${props => props.theme.colors.dark};
   text-align: center;
   margin: 15px;
-`
+`;
