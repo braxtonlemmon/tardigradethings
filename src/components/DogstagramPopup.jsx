@@ -36,14 +36,13 @@ const Wrapper = styled.div`
   top: 30px;
   height: 90%;
   max-height: 700px;
-  /* position: relative; */
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
   width: 95%;
   max-width: 700px;
-  /* height: 550px; */
   padding: 15px 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   background: white;
@@ -60,12 +59,14 @@ const ImageBox = styled.div`
   position: relative;
   width: 280px;
   height: 280px;
+  border-radius: 10px;
   background: blue;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
   .dogstagram-popup-image {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     animation-delay: 0.1s;
     animation: ${slide} 0.8s;
   }
