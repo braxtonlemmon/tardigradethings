@@ -7,12 +7,12 @@ import CartPopup from './CartPopup';
 
 function ShopFormContainer({ products }) {
   const { addVariantToCart } = useContext(StoreContext);
-  const [product, setProduct] = useState(products[0].node);
+  const [product, setProduct] = useState(products[1].node);
   const [justAdded, setJustAdded] = useState(false);
   const [variant, setVariant] = useState();
   const [data, setData] = useState({
     qty: 1,
-    shopifyId: product.variants[0].shopifyId,
+    shopifyId: product.variants[1].shopifyId,
     type: 'once',
     frequency: '10',
   });
@@ -25,18 +25,18 @@ function ShopFormContainer({ products }) {
   const handleSelection = e => {
     const { value, name } = e.target;
     if (value === 'once') {
-      setProduct(products[0].node);
-      setData({
-        ...data,
-        [name]: value,
-        ['shopifyId']: products[0].node.variants[0].shopifyId,
-      });
-    } else {
       setProduct(products[1].node);
       setData({
         ...data,
         [name]: value,
         ['shopifyId']: products[1].node.variants[0].shopifyId,
+      });
+    } else {
+      setProduct(products[0].node);
+      setData({
+        ...data,
+        [name]: value,
+        ['shopifyId']: products[0].node.variants[0].shopifyId,
       });
     }
   };

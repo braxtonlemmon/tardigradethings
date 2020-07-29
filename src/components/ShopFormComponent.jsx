@@ -54,7 +54,7 @@ const Row = styled.div`
     padding: 5px;
     color: black;
     background: white;
-    width: 150px;
+    width: 180px;
     text-align: center;
     cursor: pointer;
   }
@@ -85,7 +85,7 @@ function ShopFormComponent({
   const {
     store: { client, adding },
   } = useContext(StoreContext);
-
+  // console.log(product);
   return (
     <Wrapper>
       <h1>Order</h1>
@@ -124,7 +124,9 @@ function ShopFormComponent({
           }}
         >
           {product.variants.map(variant => (
-            <option value={variant.shopifyId}>{variant.title}</option>
+            <option
+              value={variant.shopifyId}
+            >{`${variant.title} ... $ ${variant.price}`}</option>
           ))}
         </select>
       </Row>

@@ -93,7 +93,7 @@ function ShopProducts() {
   );
   const products = data.allShopifyProduct.edges;
   const description = data.shopifyProduct.descriptionHtml;
-
+  console.log(products);
   return (
     <Wrapper>
       <ShopFormContainer products={products} />

@@ -124,6 +124,7 @@ function Dogstagram() {
           pictures={pictures}
           handleClosePopup={handleClosePopup}
           selected={selected}
+          isOpen={isOpen}
         />
       )}
     </Wrapper>
