@@ -2,12 +2,24 @@ import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ShopFormComponent from './ShopFormComponent';
 import StoreContext from '~/context/StoreContext';
-import styled from 'styled-components';
 import CartPopup from './CartPopup';
 
-function ShopFormContainer({ products }) {
+function ShopFormContainer({ productOptions }) {
+  const products = {
+    once: productOptions.find(
+      product =>
+        product.node.shopifyId ===
+        'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU0MDQ3NjY1Njg2MTA='
+    ).node,
+    subscription: productOptions.find(
+      product =>
+        product.node.shopifyId ===
+        'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzU0ODc5MTk0NjQ2MTA='
+    ).node,
+  };
+  // console.log(products.once.title);
   const { addVariantToCart } = useContext(StoreContext);
-  const [product, setProduct] = useState(products[1].node);
+  const [product, setProduct] = useState(products.once);
   const [justAdded, setJustAdded] = useState(false);
   const [variant, setVariant] = useState();
   const [data, setData] = useState({
@@ -25,18 +37,18 @@ function ShopFormContainer({ products }) {
   const handleSelection = e => {
     const { value, name } = e.target;
     if (value === 'once') {
-      setProduct(products[1].node);
+      setProduct(products.once);
       setData({
         ...data,
         [name]: value,
-        ['shopifyId']: products[1].node.variants[0].shopifyId,
+        ['shopifyId']: products.once.variants[0].shopifyId,
       });
     } else {
-      setProduct(products[0].node);
+      setProduct(products.subscription);
       setData({
         ...data,
         [name]: value,
-        ['shopifyId']: products[0].node.variants[0].shopifyId,
+        ['shopifyId']: products.subscription.variants[0].shopifyId,
       });
     }
   };
@@ -62,7 +74,7 @@ function ShopFormContainer({ products }) {
   //     : (body.style.overflow = 'visible');
   // }, [justAdded]);
 
-  console.log(product.variants[0].shopifyId);
+  // console.log(product.variants[0].shopifyId);
   return (
     <div>
       <ShopFormComponent

@@ -202,7 +202,7 @@ function DogstagramPopup({ pictures, handleClosePopup, selected }) {
     return moment(time).format('MMMM DD, YYYY');
   };
 
-  console.log(pictures);
+  // console.log(pictures);
   return (
     <Container onClick={handleClosePopup} id="dogstagram-popup">
       <Wrapper onClick={e => e.stopPropagation()}>

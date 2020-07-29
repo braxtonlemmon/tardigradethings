@@ -76,7 +76,7 @@ const Buttons = styled.div`
 `;
 
 function CartPopup({ handleClose, qty, variant, product }) {
-  console.log(variant);
+  // console.log(variant);
   const useQuantity = () => {
     const {
       store: { checkout },

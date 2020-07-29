@@ -72,7 +72,7 @@ function Hero() {
       }
     }
   `);
-  console.log(data);
+  // console.log(data);
   return (
     <Wrapper>
       <Img

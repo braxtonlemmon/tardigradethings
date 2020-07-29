@@ -91,12 +91,12 @@ function ShopProducts() {
       }
     `
   );
-  const products = data.allShopifyProduct.edges;
+  const productOptions = data.allShopifyProduct.edges;
   const description = data.shopifyProduct.descriptionHtml;
-  console.log(products);
+  // console.log(products);
   return (
     <Wrapper>
-      <ShopFormContainer products={products} />
+      <ShopFormContainer productOptions={productOptions} />
       <Description dangerouslySetInnerHTML={{ __html: description }} />
     </Wrapper>
   );
