@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { PageWrapper } from '~/utils/styles'
-import ContactFormContainer from '~/components/ContactFormContainer'
+import React from 'react';
+import styled from 'styled-components';
+import { PageWrapper } from '~/utils/styles';
+import ContactFormContainer from '~/components/ContactFormContainer';
 
 const Section = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ const Section = styled.div`
   .map-1 {
     margin-bottom: 40px;
   }
-`
+`;
 
 function Contact() {
   return (
@@ -77,7 +77,7 @@ function Contact() {
         <ContactFormContainer />
       </Section>
     </PageWrapper>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

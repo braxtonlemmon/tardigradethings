@@ -50,8 +50,9 @@ const Wrapper = styled.div`
   cursor: default;
   h2 {
     font-size: ${props => props.theme.fontSize.larger};
-    margin-bottom: 10px;
+    margin: 15px 0 20px 0;
     color: ${props => props.theme.colors.dark};
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -60,7 +61,7 @@ const ImageBox = styled.div`
   width: 280px;
   height: 280px;
   border-radius: 10px;
-  background: blue;
+  background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
   .dogstagram-popup-image {
