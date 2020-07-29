@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import reduce from 'lodash/reduce'
-import PropTypes from 'prop-types'
-import StoreContext from '~/context/StoreContext'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { AiOutlineShopping } from 'react-icons/ai'
-import Hamburger from './Hamburger'
-import logo from '../images/bone.svg'
-import MobileMenu from './MobileMenu'
+import React, { useContext } from 'react';
+import reduce from 'lodash/reduce';
+import PropTypes from 'prop-types';
+import StoreContext from '~/context/StoreContext';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { AiOutlineShopping } from 'react-icons/ai';
+import Hamburger from './Hamburger';
+import logo from '../images/bone.svg';
+import MobileMenu from './MobileMenu';
 
 const Container = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 500;
-`
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -45,7 +45,7 @@ const Wrapper = styled.div`
       height: 40px;
     }
   }
-`
+`;
 
 const Group = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const Group = styled.div`
       margin: 0 7px;
     }
   }
-`
+`;
 
 const HeaderLink = styled(Link)`
   color: ${props => props.theme.colors.dark};
@@ -73,7 +73,7 @@ const HeaderLink = styled(Link)`
       max-width: 180px;
     }
   }
-`
+`;
 
 const HeaderCart = styled.div`
   position: relative;
@@ -105,19 +105,19 @@ const HeaderCart = styled.div`
     height: 50px;
     width: 50px;
   }
-`
+`;
 
 const useQuantity = () => {
   const {
     store: { checkout },
-  } = useContext(StoreContext)
-  const items = checkout ? checkout.lineItems : []
-  const total = reduce(items, (acc, item) => acc + item.quantity, 0)
-  return [total !== 0, total]
-}
+  } = useContext(StoreContext);
+  const items = checkout ? checkout.lineItems : [];
+  const total = reduce(items, (acc, item) => acc + item.quantity, 0);
+  return [total !== 0, total];
+};
 
 function Header({ siteTitle, handleMenuClick, isMenuOpen }) {
-  const [hasItems, quantity] = useQuantity()
+  const [hasItems, quantity] = useQuantity();
   return (
     <Container>
       <Wrapper>
@@ -148,16 +148,16 @@ function Header({ siteTitle, handleMenuClick, isMenuOpen }) {
       </Wrapper>
       <MobileMenu isMenuOpen={isMenuOpen} />
     </Container>
-  )
+  );
 }
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
   handleMenuClick: PropTypes.func,
-}
+};
 
 Header.defaultPropts = {
   siteTitle: '',
-}
+};
 
-export default Header
+export default Header;

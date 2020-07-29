@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'gatsby';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-
 import StoreContext from '~/context/StoreContext';
-// import { Wrapper } from './styles'
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
-import Button from '~/components/Button';
+import {
+  AiOutlinePlusCircle,
+  AiOutlineMinusCircle,
+  AiOutlineCloseCircle,
+} from 'react-icons/ai';
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +17,9 @@ const Wrapper = styled.div`
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
+  transition: transform 400ms cubic-bezier(1, 0.06, 0.44, 0.96);
+  transform: ${props =>
+    props.isClosed ? 'translateX(300%)' : 'translateX(0)'};
 `;
 
 const TopRow = styled.div`
@@ -75,6 +79,17 @@ const Qty = styled.div`
   }
 `;
 
+const Close = styled(AiOutlineCloseCircle)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: ${props => props.theme.colors.dark};
+  &:hover {
+    color: ${props => props.theme.colors.darkLight};
+  }
+`;
+
 const LineItem = props => {
   const { item } = props;
   const {
@@ -83,6 +98,7 @@ const LineItem = props => {
     store: { client, checkout },
   } = useContext(StoreContext);
   const [qty, setQty] = useState(item.quantity);
+  const [isClosed, setClosed] = useState(false);
 
   const variantImage = item.variant.image ? (
     <img
@@ -98,22 +114,20 @@ const LineItem = props => {
       )
     : null;
 
-  const handleRemove = () => {
-    removeLineItem(client, checkout.id, item.id);
+  const handleRemove = async () => {
+    setClosed(true);
   };
+
+  useEffect(() => {
+    if (isClosed) {
+      setTimeout(removeLineItem(client, checkout.id, item.id), 1500);
+    }
+  }, [isClosed]);
 
   const handleQtyChange = e => {
     setQty(e.target.value);
     updateLineItem(client, checkout.id, item.id, e.target.value);
-    // if (e.target.value < 1) {
-    //   removeLineItem(client, checkout.id, item.id)
-    // }
   };
-
-  // const handleChange = e => {
-  //   const { name, value } = e.target
-  //   setData({ ...data, [name]: value })
-  // }
 
   const increaseQtyOne = () => {
     setQty(item.quantity + 1);
@@ -130,21 +144,7 @@ const LineItem = props => {
   };
 
   return (
-    // <Wrapper>
-    //   {/* {console.log(item)} */}
-    //   <Link to={`/product/${item.variant.product.handle}/`}>
-    //     {variantImage}
-    //   </Link>
-    //   <p>
-    //     {item.title}
-    //     {`  `}
-    //     {item.variant.title === !'Default Title' ? item.variant.title : ''}
-    //   </p>
-    //   {selectedOptions}
-    //   {item.quantity}
-    //   <Button onClick={handleRemove}>Remove</Button>
-    // </Wrapper>
-    <Wrapper>
+    <Wrapper isClosed={isClosed}>
       <TopRow>
         {variantImage}
         <div>
@@ -158,7 +158,6 @@ const LineItem = props => {
             className="qty-button"
             onClick={decreaseQtyOne}
           />
-          {/* <div className="qty-num">{item.quantity}</div> */}
           <input
             className="qty-input"
             type="number"
@@ -179,6 +178,7 @@ const LineItem = props => {
           $ {(item.quantity * item.variant.price).toFixed(2)}
         </p>
       </BottomRow>
+      <Close size={30} onClick={handleRemove} />
     </Wrapper>
   );
 };
