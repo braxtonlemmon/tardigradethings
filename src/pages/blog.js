@@ -23,6 +23,18 @@ const Post = styled.div`
   }
   p {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  p img {
+    margin: 0 auto;
+  }
+  span {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  span img {
+    margin: 5px auto;
   }
   ul {
     margin: 15px 0;
@@ -56,7 +68,7 @@ export default Blog;
 
 export const query = graphql`
   query BlogPageQuery {
-    allShopifyArticle {
+    allShopifyArticle(sort: { fields: publishedAt, order: ASC }) {
       edges {
         node {
           title
