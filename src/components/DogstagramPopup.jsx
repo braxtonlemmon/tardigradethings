@@ -30,30 +30,51 @@ const Container = styled.div`
   cursor: pointer;
   /* overflow-y: scroll; */
 `;
-
-const Wrapper = styled.div`
+const WrapperWrapper = styled.div`
   position: fixed;
   top: 30px;
   height: 90%;
-  max-height: 700px;
+  max-height: 750px;
+  width: 95%;
+  max-width: 700px;
+  border-radius: 10px;
+  padding: 10px;
+  /* padding-top: 30px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: default;
+  h2 {
+    font-size: ${props => props.theme.fontSize.larger};
+    /* margin: 15px 0 20px 0; */
+    margin: 5px 0;
+    color: ${props => props.theme.colors.dark};
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+`;
+
+const Wrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* position: fixed; */
+  /* top: 30px; */
+  /* height: 90%; */
+  /* max-height: 700px; */
+  /* width: 95%;
+  max-width: 700px; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
-  width: 95%;
-  max-width: 700px;
   padding: 15px 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); */
   background: white;
   overflow-y: scroll;
   cursor: default;
-  h2 {
-    font-size: ${props => props.theme.fontSize.larger};
-    margin: 15px 0 20px 0;
-    color: ${props => props.theme.colors.dark};
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-  }
 `;
 
 const ImageBox = styled.div`
@@ -120,6 +141,7 @@ const ArrowBox = styled.div`
 
 const InfoRow = styled.div`
   width: 100%;
+  max-width: 430px;
   display: flex;
   align-items: center;
   .insta-name {
@@ -151,13 +173,16 @@ const Caption = styled.p`
   margin: 10px;
   padding-top: 10px;
   border-top: 1px solid ${props => props.theme.colors.light};
+  max-width: 430px;
 `;
 
 const Date = styled.p`
-  align-self: flex-start;
+  /* align-self: flex-start; */
   margin: 10px;
   font-style: italic;
   padding-bottom: 15px;
+  width: 100%;
+  max-width: 430px;
 `;
 
 const Close = styled(AiOutlineCloseCircle)`
@@ -205,51 +230,53 @@ function DogstagramPopup({ pictures, handleClosePopup, selected }) {
   // console.log(pictures);
   return (
     <Container onClick={handleClosePopup} id="dogstagram-popup">
-      <Wrapper onClick={e => e.stopPropagation()}>
+      <WrapperWrapper>
         <h2>DOGSTAGRAM</h2>
-        <ImageBox>
-          <Img
-            className="dogstagram-popup-image"
-            fluid={pictures[index].node.localFile.childImageSharp.fluid}
-            key={`dogstagram-slider-${index}`}
-            alt="blah"
-          />
-          <ButtonsBox multiple={pictures.length > 1}>
-            <ArrowBox onClick={() => handlePrevious()}>
-              <FaAngleLeft className="image-slider___button" />
-            </ArrowBox>
-            <ArrowBox onClick={() => handleNext()}>
-              <FaAngleRight className="image-slider___button image-slider___right" />
-            </ArrowBox>
-          </ButtonsBox>
-        </ImageBox>
-        <InfoRow>
-          <a
-            href={`https://www.instagram.com/p/${pictures[index].node.id}/`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LogoBox>
-              <Img
-                className="dogstagram-popup-logo"
-                fluid={data.file.childImageSharp.fluid}
-                key="asdf"
-                alt="kkkllll"
-              />
-            </LogoBox>
-          </a>
-          <a
-            href={`https://www.instagram.com/p/${pictures[index].node.id}/`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <p className="insta-name">@peanutbutterdogtreats</p>
-          </a>
-        </InfoRow>
-        <Caption>{pictures[index].node.caption}</Caption>
-        <Date>{formatDate(pictures[index].node.timestamp)}</Date>
-        <Close onClick={handleClosePopup} size={30} />
-      </Wrapper>
+        <Wrapper onClick={e => e.stopPropagation()}>
+          <ImageBox>
+            <Img
+              className="dogstagram-popup-image"
+              fluid={pictures[index].node.localFile.childImageSharp.fluid}
+              key={`dogstagram-slider-${index}`}
+              alt="blah"
+            />
+            <ButtonsBox multiple={pictures.length > 1}>
+              <ArrowBox onClick={() => handlePrevious()}>
+                <FaAngleLeft className="image-slider___button" />
+              </ArrowBox>
+              <ArrowBox onClick={() => handleNext()}>
+                <FaAngleRight className="image-slider___button image-slider___right" />
+              </ArrowBox>
+            </ButtonsBox>
+          </ImageBox>
+          <InfoRow>
+            <a
+              href={`https://www.instagram.com/p/${pictures[index].node.id}/`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LogoBox>
+                <Img
+                  className="dogstagram-popup-logo"
+                  fluid={data.file.childImageSharp.fluid}
+                  key="asdf"
+                  alt="kkkllll"
+                />
+              </LogoBox>
+            </a>
+            <a
+              href={`https://www.instagram.com/p/${pictures[index].node.id}/`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="insta-name">@peanutbutterdogtreats</p>
+            </a>
+          </InfoRow>
+          <Caption>{pictures[index].node.caption}</Caption>
+          <Date>{formatDate(pictures[index].node.timestamp)}</Date>
+        </Wrapper>
+        <Close onClick={handleClosePopup} size={35} />
+      </WrapperWrapper>
     </Container>
   );
 }
