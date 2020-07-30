@@ -57,6 +57,16 @@ const Info = styled.div`
     max-width: 80%;
     margin-bottom: 20px;
     font-weight: bold;
+    @media (min-width: 600px) {
+      font-size: 2.5em;
+    }
+    @media (min-width: 700px) {
+      font-size: 3em;
+      max-width: 65%;
+    }
+    @media (min-width: 1000px) {
+      font-size: 4em;
+    }
   }
 `;
 
