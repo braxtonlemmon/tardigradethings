@@ -96,7 +96,7 @@ function ImageSlider() {
           edges {
             node {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 600, maxHeight: 600) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -80,7 +80,7 @@ function Dogstagram() {
               caption
               localFile {
                 childImageSharp {
-                  fluid {
+                  fluid(maxWidth: 430, maxHeight: 430) {
                     ...GatsbyImageSharpFluid
                   }
                 }

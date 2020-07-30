@@ -65,7 +65,7 @@ function Hero() {
     query {
       fileName: file(relativePath: { eq: "2.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(maxHeight: 700) {
             ...GatsbyImageSharpFluid
           }
         }
