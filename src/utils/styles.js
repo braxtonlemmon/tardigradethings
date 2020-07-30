@@ -88,8 +88,8 @@ export const PageWrapper = styled.div`
 export const HomeHeading = styled.h2`
   font-size: ${props => props.theme.fontSize.larger};
   padding: 10px 0;
-  width: 70%;
-  max-width: 400px;
+  width: 80%;
+  max-width: 500px;
   border-bottom: 3px solid ${props => props.theme.colors.dark};
   text-align: center;
   margin: 15px;

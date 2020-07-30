@@ -15,11 +15,13 @@ const Post = styled.div`
     font-size: ${props => props.theme.fontSize.large};
     margin-bottom: 15px;
   }
+
   .blog-date {
     margin-bottom: 15px;
   }
   .blog-content {
     line-height: 1.5em;
+    color: #666666;
   }
   p {
     margin-bottom: 20px;
@@ -27,14 +29,16 @@ const Post = styled.div`
     flex-wrap: wrap;
   }
   p img {
-    margin: 0 auto;
+    margin: 10px auto;
   }
   span {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
   span img {
-    margin: 5px auto;
+    margin: 0 auto;
+    padding: 5px;
   }
   ul {
     margin: 15px 0;

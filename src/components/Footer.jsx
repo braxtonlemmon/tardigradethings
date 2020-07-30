@@ -14,6 +14,9 @@ const Wrapper = styled.footer`
     width: 85%;
     border-bottom: 1px solid ${props => props.theme.colors.dark};
   }
+  a {
+    color: rgba(0, 0, 0, 0.7);
+  }
   a:hover {
     color: ${props => props.theme.colors.darkLight};
   }
@@ -94,10 +97,15 @@ function Footer() {
           >
             <span> Braxton Lemmon</span>
           </a>
+          .
         </p>
         <p>
-          © {new Date().getFullYear()} Peanut Butter Dog Treats. All rights
-          reserved.
+          © {new Date().getFullYear()}{' '}
+          <Link to="/">Peanut Butter Dog Treats</Link>. Powered by{' '}
+          <a href="https://www.shopify.com/" target="_blank" rel="noreferrer">
+            Shopify
+          </a>
+          . All rights reserved.
         </p>
       </Legal>
     </Wrapper>
