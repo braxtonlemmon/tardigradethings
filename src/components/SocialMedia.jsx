@@ -5,6 +5,7 @@ import { FaFacebookMessenger, FaGoogle } from 'react-icons/fa';
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: ${props => (props.column ? 'column' : 'row')};
   justify-content: center;
   align-items: center;
   color: ${props => props.theme.colors.dark};
@@ -16,13 +17,14 @@ const Wrapper = styled.div`
     }
   }
   a {
-    margin: 0 15px;
+    margin: 0 12px;
+    margin: ${props => (props.column ? '10px' : '0 12px')};
   }
 `;
 
-function SocialMedia({ size }) {
+function SocialMedia({ size, column }) {
   return (
-    <Wrapper size={size}>
+    <Wrapper size={size} column={column}>
       <a
         href="http://instagram.com/peanutbutterdogtreats"
         target="_blank"

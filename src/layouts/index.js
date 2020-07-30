@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import Header from '../components/Header'
-import PromoBanner from '../components/PromoBanner'
-import ContextProvider from '~/provider/ContextProvider'
-import Footer from '../components/Footer'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+import Header from '../components/Header';
+import PromoBanner from '../components/PromoBanner';
+import ContextProvider from '~/provider/ContextProvider';
+import Footer from '../components/Footer';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const Container = styled.div`
   grid-template-rows: auto auto 1fr auto;
   width: 100%;
   min-height: 100vh;
-`
+`;
 
 const Main = styled.div`
   margin: 0 auto;
@@ -23,20 +23,20 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
-`
+`;
 
 const Layout = ({ children }) => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setMenuOpen] = useState(true);
 
   const handleMenuClick = () => {
-    setMenuOpen(!isMenuOpen)
-  }
+    setMenuOpen(!isMenuOpen);
+  };
 
   const handleMainClick = () => {
     if (isMenuOpen) {
-      setMenuOpen(false)
+      setMenuOpen(false);
     }
-  }
+  };
 
   return (
     <ContextProvider>
@@ -64,11 +64,11 @@ const Layout = ({ children }) => {
         )}
       />
     </ContextProvider>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

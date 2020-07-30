@@ -1,42 +1,35 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import SocialMedia from './SocialMedia';
 
 const Wrapper = styled.div`
+  background: ${props => props.theme.colors.bone};
   width: 100%;
   overflow: hidden;
-  /* height: 400px; */
-  /* transition: flex 250ms ease-in-out;
-  flex: ${props => (props.isMenuOpen ? '1' : '0')}; */
   transition: max-height 300ms ease;
   max-height: 0;
   max-height: ${props => (props.isMenuOpen ? '400px' : '0')};
-  background: white;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
   p {
     padding: 5px 10px;
   }
 `;
 
 const MenuList = styled.ul`
-  width: 100%;
-  background: ${props => props.theme.colors.bone};
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 10px 20px;
   li {
     border-bottom: 1px solid ${props => props.theme.colors.dark};
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: stretch;
     align-items: stretch;
-  }
-  li:last-child {
-    border-bottom: none;
   }
   a {
     margin: 5px 0;
@@ -47,22 +40,20 @@ const MenuList = styled.ul`
   }
 `;
 
-function MobileMenu({ isMenuOpen }) {
-  // useEffect(() => {
-  //   const body = document.querySelector('body');
-  //   if (isMenuOpen) {
-  //     body.style.overflow = 'hidden';
-  //     body.style.overflowY = 'scroll';
-  //   } else {
-  //     body.style.overflow = 'visible';
-  //   }
-  //   // isMenuOpen
-  //   //   ? (body.style.overflow = 'hidden')
-  //   //   : (body.style.overflow = 'visible')
-  // }, [isMenuOpen]);
+const Social = styled.div`
+  margin: 0 30px 0 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+`;
 
+function MobileMenu({ isMenuOpen }) {
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
+      <Social>
+        <SocialMedia size={33} column />
+      </Social>
       <MenuList>
         <li>
           <Link to="/">Home</Link>
@@ -80,6 +71,9 @@ function MobileMenu({ isMenuOpen }) {
           <Link to="/contact">Contact</Link>
         </li>
       </MenuList>
+      {/* <Social>
+        <SocialMedia size={35} />
+      </Social> */}
     </Wrapper>
   );
 }

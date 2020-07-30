@@ -5,7 +5,7 @@ import SocialMedia from './SocialMedia';
 
 const Wrapper = styled.footer`
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   background: ${props => props.theme.colors.bone};
   margin-top: 15px;
   & > * {
@@ -82,7 +82,7 @@ function Footer() {
           </ul>
         </div>
       </SiteLinks>
-      <SocialMedia size={40} />
+      <SocialMedia size={33} />
       <Legal>
         <p>
           Web development by
