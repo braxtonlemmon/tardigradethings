@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import Button from './Button'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Button from './Button';
 
 const FormWrapper = styled.form`
   display: flex;
@@ -23,14 +23,16 @@ const FormWrapper = styled.form`
     width: 100%;
   }
   input {
+    width: 90%;
     max-width: 450px;
   }
   textarea {
+    width: 90%;
     resize: none;
     height: 150px;
     max-width: 500px;
   }
-`
+`;
 
 const FormBox = styled.div`
   display: flex;
@@ -41,7 +43,7 @@ const FormBox = styled.div`
   small {
     font-size: 0.7em;
   }
-`
+`;
 
 const Buttons = styled.div`
   display: flex;
@@ -49,7 +51,7 @@ const Buttons = styled.div`
   grid-auto-flow: column;
   gap: 30px;
   margin: 5px 0;
-`
+`;
 
 function ContactFormComponent({
   handleChange,
@@ -119,7 +121,7 @@ function ContactFormComponent({
         </Button>
       </Buttons>
     </FormWrapper>
-  )
+  );
 }
 
 ContactFormComponent.propTypes = {
@@ -128,6 +130,6 @@ ContactFormComponent.propTypes = {
   handleSubmit: PropTypes.func,
   formErrors: PropTypes.object,
   showErrors: PropTypes.bool,
-}
+};
 
-export default ContactFormComponent
+export default ContactFormComponent;
