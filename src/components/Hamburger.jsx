@@ -1,7 +1,10 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
+  @media (min-width: 1000px) {
+    display: none;
+  }
   #nav-icon3 {
     width: 36px;
     height: 30px;
@@ -92,7 +95,7 @@ const Wrapper = styled.div`
         left: 50%;
       `}
   }
-`
+`;
 
 function Hamburger({ handleMenuClick, isMenuOpen }) {
   return (
@@ -104,7 +107,7 @@ function Hamburger({ handleMenuClick, isMenuOpen }) {
         <span></span>
       </div>
     </Wrapper>
-  )
+  );
 }
 
-export default Hamburger
+export default Hamburger;

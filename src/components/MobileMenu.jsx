@@ -16,6 +16,9 @@ const Wrapper = styled.div`
   p {
     padding: 5px 10px;
   }
+  @media (min-width: 1000px) {
+    display: none;
+  }
 `;
 
 const MenuList = styled.ul`

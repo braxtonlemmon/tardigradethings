@@ -8,6 +8,7 @@ import { AiOutlineShopping } from 'react-icons/ai';
 import Hamburger from './Hamburger';
 import logo from '../images/bone.svg';
 import MobileMenu from './MobileMenu';
+import SocialMedia from './SocialMedia';
 
 const Container = styled.div`
   width: 100%;
@@ -55,6 +56,16 @@ const Group = styled.div`
     @media (min-width: 412px) {
       margin: 0 7px;
     }
+  }
+`;
+
+const Large = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  @media (max-width: 999px) {
+    display: none;
   }
 `;
 
@@ -107,6 +118,21 @@ const HeaderCart = styled.div`
   }
 `;
 
+const LargeLinks = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .header-horizontal-link {
+    font-size: ${props => props.theme.fontSize.medium};
+    margin: 0 15px;
+  }
+  a {
+    &:hover {
+      color: ${props => props.theme.colors.darkLight};
+    }
+  }
+`;
+
 const useQuantity = () => {
   const {
     store: { checkout },
@@ -133,6 +159,23 @@ function Header({ siteTitle, handleMenuClick, isMenuOpen }) {
             <h1>{siteTitle}</h1>
           </HeaderLink>
         </Group>
+        <Large>
+          <LargeLinks>
+            <li className="header-horizontal-link">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="header-horizontal-link">
+              <Link to="/shop">Shop</Link>
+            </li>
+            <li className="header-horizontal-link">
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li className="header-horizontal-link">
+              <Link to="/contact">Contact</Link>
+            </li>
+          </LargeLinks>
+          <SocialMedia size={30} />
+        </Large>
         <Group>
           <HeaderLink className="cart" to="/cart">
             <HeaderCart>

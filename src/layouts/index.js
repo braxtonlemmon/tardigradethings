@@ -26,7 +26,7 @@ const Main = styled.div`
 `;
 
 const Layout = ({ children }) => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleMenuClick = () => {
     setMenuOpen(!isMenuOpen);
