@@ -34,6 +34,9 @@ const MenuList = styled.ul`
     justify-content: stretch;
     align-items: stretch;
   }
+  li:last-child {
+    border-bottom: none;
+  }
   a {
     margin: 5px 0;
     padding: 15px 10px;

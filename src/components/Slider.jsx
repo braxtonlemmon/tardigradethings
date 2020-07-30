@@ -22,8 +22,8 @@ const Container = styled.div`
     height: 400px;
   }
   @media (min-width: 768px) {
-    height: 600px;
-    width: 600px;
+    height: 550px;
+    width: 550px;
   }
 `;
 
@@ -31,6 +31,7 @@ const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   .image {
     animation-delay: 0.1s;
     animation: ${slide} 0.8s;
@@ -71,7 +72,7 @@ const ArrowBox = styled.div`
     margin-left: auto;
   }
   .image-slider___button {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     z-index: 16;
     height: 60px;
     width: 60px;

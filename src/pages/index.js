@@ -16,9 +16,12 @@ const MainContent = styled.div`
   align-items: center;
   p {
     width: 80%;
-    max-width: 600px;
     margin: 15px auto;
     line-height: 1.5em;
+    @media (min-width: 600px) {
+      width: 90%;
+      max-width: 600px;
+    }
   }
 `;
 
