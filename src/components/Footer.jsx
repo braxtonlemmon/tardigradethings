@@ -1,8 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { GrInstagram, GrFacebook, GrPinterest } from 'react-icons/gr'
-import { FaFacebookMessenger } from 'react-icons/fa'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import SocialMedia from './SocialMedia';
 
 const Wrapper = styled.footer`
   width: 100%;
@@ -18,7 +17,7 @@ const Wrapper = styled.footer`
   a:hover {
     color: ${props => props.theme.colors.darkLight};
   }
-`
+`;
 
 const SiteLinks = styled.div`
   display: flex;
@@ -30,24 +29,7 @@ const SiteLinks = styled.div`
   li {
     padding-top: 15px;
   }
-`
-
-const SocialMedia = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: ${props => props.theme.colors.dark};
-  .social-icon {
-    height: 40px;
-    width: 40px;
-    &:hover {
-      color: ${props => props.theme.colors.darkLight};
-    }
-  }
-  a {
-    margin: 0 15px;
-  }
-`
+`;
 
 const Legal = styled.div`
   display: flex;
@@ -59,7 +41,7 @@ const Legal = styled.div`
   & > * {
     margin: 10px 0;
   }
-`
+`;
 
 function Footer() {
   return (
@@ -100,36 +82,7 @@ function Footer() {
           </ul>
         </div>
       </SiteLinks>
-      <SocialMedia>
-        <a
-          href="http://instagram.com/peanutbutterdogtreats"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GrInstagram className="social-icon" />
-        </a>
-        <a
-          href="https://www.facebook.com/peanutbuttertreats/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GrFacebook className="social-icon" />
-        </a>
-        <a
-          href="https://www.pinterest.com/peanutbuttertreats/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GrPinterest className="social-icon" />
-        </a>
-        <a
-          href="https://m.me/peanutbuttertreats"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FaFacebookMessenger className="social-icon" />
-        </a>
-      </SocialMedia>
+      <SocialMedia size={40} />
       <Legal>
         <p>
           Web development by
@@ -147,7 +100,7 @@ function Footer() {
         </p>
       </Legal>
     </Wrapper>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
