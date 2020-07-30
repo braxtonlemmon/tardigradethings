@@ -29,6 +29,7 @@ const SiteLinks = styled.div`
   li {
     padding-top: 15px;
   }
+  max-width: 700px;
 `;
 
 const Legal = styled.div`
