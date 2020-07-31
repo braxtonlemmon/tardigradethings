@@ -72,7 +72,7 @@ export default Blog;
 
 export const query = graphql`
   query BlogPageQuery {
-    allShopifyArticle(sort: { fields: publishedAt, order: ASC }) {
+    allShopifyArticle(sort: { fields: publishedAt, order: DESC }) {
       edges {
         node {
           title

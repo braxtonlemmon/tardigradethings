@@ -6,6 +6,7 @@ const theme = {
     pb: '#b98e52',
     light: '#dfb27c',
     bone: '#dfcaae',
+    promo: '#dbbab2',
   },
 
   fontSize: {
@@ -15,6 +16,6 @@ const theme = {
     larger: '1.95em',
     huge: '2.4em',
   },
-}
+};
 
-export default theme
+export default theme;
