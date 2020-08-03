@@ -17,6 +17,7 @@ const Post = styled.div`
   h2 {
     font-size: ${props => props.theme.fontSize.large};
     margin-bottom: 15px;
+    text-align: center;
   }
 
   .blog-date {
@@ -49,6 +50,9 @@ const Post = styled.div`
   li {
     list-style: disc;
     margin-left: 15px;
+  }
+  img {
+    max-width: 90% !important;
   }
 `;
 function Blog({ data }) {
