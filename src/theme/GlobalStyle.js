@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: #380807;
+    outline: none;
   }
 `;
 

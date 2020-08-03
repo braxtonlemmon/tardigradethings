@@ -18,7 +18,6 @@ function ThankYou() {
         keywords={['dog treats', 'peanut butter', 'subscription', 'dogs']}
         description="Thank You Page of Peanut Butter Dog Treats"
       />
-      ;
       <Wrapper>
         <h1>Thank you!</h1>
         <p className="thank-you-intro">

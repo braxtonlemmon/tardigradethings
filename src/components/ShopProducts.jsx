@@ -18,6 +18,7 @@ const Description = styled.div`
   max-width: 500px;
   background: rgba(0, 0, 0, 0.07);
   padding: 5px 20px;
+  border-radius: 15px;
   p {
     margin: 20px 0;
     line-height: 1.5em;

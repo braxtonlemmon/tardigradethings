@@ -66,7 +66,6 @@ function Refunds() {
         ]}
         description="Refund Policy of Peanut Butter Dog Treats"
       />
-      ;
       <PageWrapper>
         <h1>Refund Policy</h1>
         <Wrapper>

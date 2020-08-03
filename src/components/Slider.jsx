@@ -17,6 +17,7 @@ const Container = styled.div`
   width: 300px;
   height: 400px;
   margin: 20px 0;
+  border-radius: 15px;
   @media (min-width: 412px) {
     width: 400px;
     height: 400px;
@@ -31,12 +32,14 @@ const ImgWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   .image {
     animation-delay: 0.1s;
     animation: ${slide} 0.8s;
     height: 100%;
     width: 100%;
+    border-radius: 15px;
   }
 `;
 
@@ -48,6 +51,7 @@ const FakeImg = styled.div`
   height: 100%;
   box-shadow: inset 0 0 50px black;
   z-index: 1;
+  border-radius: 15px;
 `;
 
 const ButtonsBox = styled.div`

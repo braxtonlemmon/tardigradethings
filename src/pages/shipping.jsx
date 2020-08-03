@@ -57,7 +57,6 @@ function Shipping() {
         ]}
         description="Shipping Policy of Peanut Butter Dog Treats"
       />
-      ;
       <PageWrapper>
         <h1>Shipping Policy</h1>
         <Wrapper>

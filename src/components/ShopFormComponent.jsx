@@ -10,8 +10,7 @@ const Wrapper = styled.form`
   flex-direction: column;
   align-items: flex-start;
   justify-content: baseline;
-  /* border: 1px solid black;
-   */
+  border-radius: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: 10px;
   margin: 10px 0 30px 0;

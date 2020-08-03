@@ -18,7 +18,6 @@ function Shop() {
         ]}
         description="Peanut Butter Dog Treats Shop"
       />
-      ;
       <PageWrapper>
         <h1>Shop</h1>
         <Slider />

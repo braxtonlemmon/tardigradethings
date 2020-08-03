@@ -22,6 +22,7 @@ const Section = styled.div`
   iframe {
     margin: 10px 0 20px 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
 
   .phone {
@@ -51,7 +52,6 @@ function Contact() {
         ]}
         description="Contact page of Peanut Butter Dog Treats"
       />
-      ;
       <PageWrapper>
         <h1>Contact</h1>
         <Section>
