@@ -5,15 +5,12 @@ import { graphql } from 'gatsby';
 
 const Post = styled.div`
   width: 90%;
-  margin: 15px auto;
+  margin: 5px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 15px;
-  border-bottom: 1px solid ${props => props.theme.colors.darkLight};
-  &:last-child {
-    border-bottom: none;
-  }
+  padding-top: 15px;
+  border-top: 1px solid ${props => props.theme.colors.darkLight};
   h2 {
     font-size: ${props => props.theme.fontSize.large};
     margin-bottom: 15px;
@@ -31,6 +28,12 @@ const Post = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
+  }
+  p,
+  div,
+  span {
+    color: ${props => props.theme.colors.dark} !important;
+    line-height: 1.5em;
   }
   p img {
     margin: 10px auto;
