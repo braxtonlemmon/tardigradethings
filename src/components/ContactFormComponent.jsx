@@ -42,6 +42,9 @@ const FormBox = styled.div`
   small {
     font-size: 0.7em;
   }
+  #email {
+    border: ${props => (props.showErrors ? '2px solid red' : '1px solid grey')};
+  }
 `;
 
 const Buttons = styled.div`
@@ -61,7 +64,7 @@ function ContactFormComponent({
 }) {
   return (
     <FormWrapper>
-      <FormBox>
+      <FormBox showErrors={showErrors}>
         <label htmlFor="email">* Email:</label>
         <input
           className="contact-form-input"
@@ -76,7 +79,6 @@ function ContactFormComponent({
 
       <FormBox>
         <label htmlFor="phone">Phone:</label>
-        <small>(Format: 123-456-7890)</small>
         <input
           className="contact-form-input"
           type="tel"
@@ -85,7 +87,6 @@ function ContactFormComponent({
           placeholder="Your phone number here."
           onChange={e => handleChange(e)}
           value={data.phone}
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         />
       </FormBox>
 

@@ -18,6 +18,7 @@ function ContactFormContainer() {
   const handleChange = e => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
+    handleValidation();
   };
 
   const handleValidation = () => {
@@ -46,6 +47,7 @@ function ContactFormContainer() {
       }
     }
     setFormErrors(errors);
+    setShowErrors(!formIsValid);
     return formIsValid;
   };
 
@@ -80,6 +82,7 @@ function ContactFormContainer() {
         .catch(err => console.log(err.message));
     } else {
       setShowErrors(true);
+      setSending(false);
     }
   };
 
