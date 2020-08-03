@@ -74,9 +74,9 @@ function Footer() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/cottage">Food Law</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/shipping">Shipping</Link>
             </li>
