@@ -28,8 +28,8 @@ const Container = styled.div`
 const Spinner = styled.div`
   position: absolute;
   top: 0;
-  border: 20px solid ${props => props.theme.colors.card};
-  border-top: 20px solid ${props => props.theme.colors.dark};
+  border: 30px double ${props => props.theme.colors.card};
+  border-top: 30px solid ${props => props.theme.colors.card};
   border-radius: 50%;
   width: 200px;
   height: 200px;
