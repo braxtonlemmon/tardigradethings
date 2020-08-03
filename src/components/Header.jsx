@@ -16,7 +16,7 @@ const Container = styled.div`
   flex-direction: column;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 500;
 `;
 

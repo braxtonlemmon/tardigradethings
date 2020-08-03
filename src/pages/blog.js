@@ -11,6 +11,9 @@ const Post = styled.div`
   align-items: center;
   padding-bottom: 15px;
   border-bottom: 1px solid ${props => props.theme.colors.darkLight};
+  &:last-child {
+    border-bottom: none;
+  }
   h2 {
     font-size: ${props => props.theme.fontSize.large};
     margin-bottom: 15px;
