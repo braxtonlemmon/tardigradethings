@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ContactFormComponent from './ContactFormComponent';
 import { navigate } from 'gatsby';
+import Sending from './Sending';
 
 function ContactFormContainer() {
   const [data, setData] = useState({
@@ -12,6 +13,7 @@ function ContactFormContainer() {
   });
   const [formErrors, setFormErrors] = useState({});
   const [showErrors, setShowErrors] = useState(false);
+  const [isSending, setSending] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -48,6 +50,7 @@ function ContactFormContainer() {
   };
 
   const handleSubmit = e => {
+    setSending(true);
     e.preventDefault();
     if (handleValidation()) {
       fetch('https://pbdt-git-master.braxtonlemmon.vercel.app/api/send-mail', {
@@ -68,6 +71,7 @@ function ContactFormContainer() {
           if (response.ok && response.status === 200) {
             setData({ from: '', email: '', subject: '', message: '' });
             setShowErrors(false);
+            setSending(false);
             navigate('/ThankYou');
             return response.json();
           }
@@ -80,13 +84,16 @@ function ContactFormContainer() {
   };
 
   return (
-    <ContactFormComponent
-      data={data}
-      handleChange={handleChange}
-      handleSubmit={handleSubmit}
-      showErrors={showErrors}
-      formErrors={formErrors}
-    />
+    <>
+      <ContactFormComponent
+        data={data}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        showErrors={showErrors}
+        formErrors={formErrors}
+      />
+      {isSending && <Sending />}
+    </>
   );
 }
 export default ContactFormContainer;

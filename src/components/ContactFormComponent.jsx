@@ -23,14 +23,12 @@ const FormWrapper = styled.form`
     width: 100%;
   }
   input {
-    width: 90%;
-    max-width: 450px;
+    width: 100%;
   }
   textarea {
-    width: 90%;
+    width: 100%;
     resize: none;
     height: 150px;
-    max-width: 500px;
   }
 `;
 
@@ -39,7 +37,8 @@ const FormBox = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
-  width: 100%;
+  width: 90%;
+  max-width: 500px;
   small {
     font-size: 0.7em;
   }
