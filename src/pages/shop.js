@@ -3,14 +3,28 @@ import React from 'react';
 import { PageWrapper } from '~/utils/styles';
 import Slider from '~/components/Slider';
 import ShopProducts from '~/components/ShopProducts';
-
+import SEO from '~/components/seo';
 function Shop() {
   return (
-    <PageWrapper>
-      <h1>Shop</h1>
-      <Slider />
-      <ShopProducts />
-    </PageWrapper>
+    <>
+      <SEO
+        title="Shop"
+        keywords={[
+          'shop',
+          'dog treats',
+          'peanut butter',
+          'subscription',
+          'dogs',
+        ]}
+        description="Peanut Butter Dog Treats Shop"
+      />
+      ;
+      <PageWrapper>
+        <h1>Shop</h1>
+        <Slider />
+        <ShopProducts />
+      </PageWrapper>
+    </>
   );
 }
 

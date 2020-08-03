@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { PageWrapper } from '~/utils/styles';
 import { graphql } from 'gatsby';
+import SEO from '~/components/seo';
 
 const Post = styled.div`
   width: 90%;
@@ -62,19 +63,32 @@ function Blog({ data }) {
   const articles = data.allShopifyArticle.edges;
 
   return (
-    <PageWrapper>
-      <h1>Blog</h1>
-      {articles.map(article => (
-        <Post>
-          <h2>{article.node.title}</h2>
-          <p className="blog-date">{article.node.publishedAt}</p>
-          <div
-            className="blog-content"
-            dangerouslySetInnerHTML={{ __html: article.node.contentHtml }}
-          ></div>
-        </Post>
-      ))}
-    </PageWrapper>
+    <>
+      <SEO
+        title="Blog"
+        keywords={[
+          'blog posts',
+          'dog treats',
+          'peanut butter',
+          'subscription',
+          'dogs',
+        ]}
+        description="Peanut Butter Dog Treats Blog"
+      />
+      <PageWrapper>
+        <h1>Blog</h1>
+        {articles.map(article => (
+          <Post>
+            <h2>{article.node.title}</h2>
+            <p className="blog-date">{article.node.publishedAt}</p>
+            <div
+              className="blog-content"
+              dangerouslySetInnerHTML={{ __html: article.node.contentHtml }}
+            ></div>
+          </Post>
+        ))}
+      </PageWrapper>
+    </>
   );
 }
 

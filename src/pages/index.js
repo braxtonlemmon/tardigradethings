@@ -31,6 +31,7 @@ function IndexPage() {
       <SEO
         title="Home"
         keywords={['dog treats', 'peanut butter', 'subscription', 'dogs']}
+        description="Home page of Peanut Butter Dog Treats"
       />
       <Hero />
       <MainContent>
