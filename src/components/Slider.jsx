@@ -132,7 +132,7 @@ function ImageSlider() {
           className="image"
           fluid={images[index].node.childImageSharp.fluid}
           key={`image${index}`}
-          alt="okay"
+          alt={images[index].node.name}
         />
         <ButtonsBox multiple={images.length > 1}>
           <ArrowBox onClick={() => handlePrevious()}>

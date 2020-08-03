@@ -238,7 +238,7 @@ function DogstagramPopup({ pictures, handleClosePopup, selected }) {
               className="dogstagram-popup-image"
               fluid={pictures[index].node.localFile.childImageSharp.fluid}
               key={`dogstagram-slider-${index}`}
-              alt="blah"
+              alt={pictures[index].node.caption}
             />
             <ButtonsBox multiple={pictures.length > 1}>
               <ArrowBox onClick={() => handlePrevious()}>
@@ -259,8 +259,8 @@ function DogstagramPopup({ pictures, handleClosePopup, selected }) {
                 <Img
                   className="dogstagram-popup-logo"
                   fluid={data.file.childImageSharp.fluid}
-                  key="asdf"
-                  alt="kkkllll"
+                  key="instagram logo"
+                  alt="instagram logo"
                 />
               </LogoBox>
             </a>

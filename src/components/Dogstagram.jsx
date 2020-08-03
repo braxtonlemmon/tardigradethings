@@ -111,7 +111,7 @@ function Dogstagram() {
             <Img
               className="dogstagram___img"
               fluid={node.localFile.childImageSharp.fluid}
-              alt="blah"
+              alt={node.caption}
             />
             <DimLayer>
               <InstaLogo size={60} />

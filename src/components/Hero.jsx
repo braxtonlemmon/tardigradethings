@@ -88,7 +88,7 @@ function Hero() {
       <Img
         className="hero-image"
         fluid={data.fileName.childImageSharp.fluid}
-        alt="hero"
+        alt="hero image of peanut butter dog treats"
       />
       <DimLayer></DimLayer>
       <Info>
