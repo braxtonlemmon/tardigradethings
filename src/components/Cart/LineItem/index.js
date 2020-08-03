@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
+  border-radius: 10px;
   transition: transform 400ms cubic-bezier(1, 0.06, 0.44, 0.96);
   transform: ${props =>
     props.isClosed ? 'translateX(300%)' : 'translateX(0)'};
@@ -90,6 +91,19 @@ const Close = styled(AiOutlineCloseCircle)`
   }
 `;
 
+const ImageWrapper = styled.div`
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+
+  .line-item-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+`;
+
 const LineItem = props => {
   const { item } = props;
   const {
@@ -99,12 +113,12 @@ const LineItem = props => {
   } = useContext(StoreContext);
   const [qty, setQty] = useState(item.quantity);
   const [isClosed, setClosed] = useState(false);
-
+  console.log(item.variant.image);
   const variantImage = item.variant.image ? (
     <img
       src={item.variant.image.src}
       alt={`${item.title} product shot`}
-      height="60px"
+      className="line-item-image"
     />
   ) : null;
 
@@ -136,6 +150,7 @@ const LineItem = props => {
 
   const decreaseQtyOne = () => {
     if (item.quantity === 1) {
+      setClosed(true);
       removeLineItem(client, checkout.id, item.id);
     } else {
       setQty(item.quantity - 1);
@@ -146,7 +161,8 @@ const LineItem = props => {
   return (
     <Wrapper isClosed={isClosed}>
       <TopRow>
-        {variantImage}
+        {/* {variantImage} */}
+        <ImageWrapper>{variantImage}</ImageWrapper>
         <div>
           <p>{item.title}</p>
           <p>{item.variant.title}</p>
