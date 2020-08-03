@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
@@ -107,7 +107,10 @@ function Dogstagram() {
       <HomeHeading>Dogstagram</HomeHeading>
       <Images>
         {pictures.map(({ node }, index) => (
-          <ImgBox onClick={e => handleClick(e, index)}>
+          <ImgBox
+            key={`dogstagram~${node.id}`}
+            onClick={e => handleClick(e, index)}
+          >
             <Img
               className="dogstagram___img"
               fluid={node.localFile.childImageSharp.fluid}

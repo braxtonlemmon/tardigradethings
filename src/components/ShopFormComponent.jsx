@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from './Button';
@@ -82,16 +82,14 @@ function ShopFormComponent({
 }) {
   // Pull data/func from context
   const {
-    store: { client, adding },
+    store: { adding },
   } = useContext(StoreContext);
-  // console.log(product);
   return (
     <Wrapper>
       <h1>Order</h1>
       <Row>
         <input
           checked={data.type === 'once'}
-          // onChange={e => handleChange(e)}
           onChange={e => handleSelection(e)}
           type="radio"
           id="once"
@@ -125,6 +123,7 @@ function ShopFormComponent({
           {product.variants.map(variant => (
             <option
               value={variant.shopifyId}
+              key={variant.shopifyId}
             >{`${variant.title} ... $ ${variant.price}`}</option>
           ))}
         </select>

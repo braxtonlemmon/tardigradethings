@@ -34,24 +34,6 @@ const Group = styled.div`
   }
 `;
 
-const Table = styled.table`
-  text-align: left;
-  border-collapse: collapse;
-  margin: 15px 0;
-  border: 1px solid black;
-  th,
-  td {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-  }
-  th,
-  td {
-    padding: 8px;
-  }
-  th {
-    background: rgba(0, 0, 0, 0.1);
-  }
-`;
-
 function Refunds() {
   return (
     <>

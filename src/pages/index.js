@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
 import Dogstagram from '../components/Dogstagram';
 import SEO from '~/components/seo';
-import ProductGrid from '~/components/ProductGrid';
 import Hero from '~/components/Hero';
 import Slider from '~/components/Slider';
 import { HomeHeading } from '~/utils/styles';

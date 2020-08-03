@@ -122,12 +122,6 @@ const LineItem = props => {
     />
   ) : null;
 
-  const selectedOptions = item.variant.selectedOptions
-    ? item.variant.selectedOptions.map(
-        option => `${option.name}: ${option.value} `
-      )
-    : null;
-
   const handleRemove = async () => {
     setClosed(true);
   };
@@ -161,7 +155,6 @@ const LineItem = props => {
   return (
     <Wrapper isClosed={isClosed}>
       <TopRow>
-        {/* {variantImage} */}
         <ImageWrapper>{variantImage}</ImageWrapper>
         <div>
           <p>{item.title}</p>

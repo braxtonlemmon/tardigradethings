@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import ShopFormComponent from './ShopFormComponent';
 import StoreContext from '~/context/StoreContext';
@@ -67,14 +67,6 @@ function ShopFormContainer({ productOptions }) {
     setJustAdded(false);
   };
 
-  // useEffect(() => {
-  //   const body = document.querySelector('body');
-  //   justAdded
-  //     ? (body.style.overflow = 'hidden')
-  //     : (body.style.overflow = 'visible');
-  // }, [justAdded]);
-
-  // console.log(product.variants[0].shopifyId);
   return (
     <div>
       <ShopFormComponent

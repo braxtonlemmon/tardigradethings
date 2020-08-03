@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import reduce from 'lodash/reduce';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { FaCheck, FaRegSmileBeam } from 'react-icons/fa';
+import { FaRegSmileBeam } from 'react-icons/fa';
 import Button from './Button';
 import { Link } from 'gatsby';
 import StoreContext from '~/context/StoreContext';
@@ -76,7 +76,6 @@ const Buttons = styled.div`
 `;
 
 function CartPopup({ handleClose, qty, variant, product }) {
-  // console.log(variant);
   const useQuantity = () => {
     const {
       store: { checkout },
