@@ -8,7 +8,6 @@ const theme = {
     bone: '#dfcaae',
     promo: '#dbbab2',
   },
-
   fontSize: {
     normal: '1em',
     medium: '1.25em',
