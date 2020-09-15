@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PageWrapper } from '~/utils/styles';
-import { graphql } from 'gatsby';
 import SEO from '~/components/seo';
 
 const Post = styled.div`
@@ -77,49 +76,9 @@ function Blog({ data }) {
       />
       <PageWrapper>
         <h1>Blog</h1>
-        {articles.map(article => (
-          <Post>
-            <h2>{article.node.title}</h2>
-            <p className="blog-date">{article.node.publishedAt}</p>
-            <div
-              className="blog-content"
-              dangerouslySetInnerHTML={{ __html: article.node.contentHtml }}
-            ></div>
-          </Post>
-        ))}
       </PageWrapper>
     </>
   );
 }
 
 export default Blog;
-
-export const query = graphql`
-  query BlogPageQuery {
-    allShopifyArticle(sort: { fields: publishedAt, order: DESC }) {
-      edges {
-        node {
-          title
-          content
-          excerpt
-          seo {
-            title
-            description
-          }
-          tags
-          contentHtml
-          publishedAt(formatString: "MMMM DD, YYYY")
-          image {
-            localFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

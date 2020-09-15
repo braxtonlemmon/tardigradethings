@@ -31,30 +31,30 @@ const Description = styled.div`
 `;
 
 function ShopProducts() {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        shopifyProduct(title: { eq: "Peanut Butter Oats 10oz" }) {
-          descriptionHtml
-        }
-        allShopifyProduct {
-          edges {
-            node {
-              title
-              shopifyId
-              variants {
-                title
-                price
-                shopifyId
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-  const productOptions = data.allShopifyProduct.edges;
-  const description = data.shopifyProduct.descriptionHtml;
+  // const data = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       shopifyProduct(title: { eq: "Peanut Butter Oats 10oz" }) {
+  //         descriptionHtml
+  //       }
+  //       allShopifyProduct {
+  //         edges {
+  //           node {
+  //             title
+  //             shopifyId
+  //             variants {
+  //               title
+  //               price
+  //               shopifyId
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
+  // const productOptions = data.allShopifyProduct.edges;
+  // const description = data.shopifyProduct.descriptionHtml;
   // console.log(products);
   return (
     <Wrapper>

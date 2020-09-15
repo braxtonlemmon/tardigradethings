@@ -6,8 +6,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `PEANUT BUTTER DOG TREATS`,
-    description: `Peanut Butter Dog Treats`,
+    title: `Tardigrade Things`,
+    description: `Tardigrade Things`,
     author: `Braxton Lemmon`,
   },
   plugins: [
@@ -28,9 +28,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Peanut Butter Dog Treats`,
-        short_name: `Peanut Butter Dog Treats`,
-        description: 'The best place to buy peanut butter dog treats',
+        name: `Tardigrade Things`,
+        short_name: `Tardigrade Things`,
+        description: 'The best place to buy tardigrade things.',
         start_url: `/`,
         lang: 'en',
         background_color: `#e08982`,
@@ -44,29 +44,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-shopify`,
-      options: {
-        // The domain name of your Shopify shop. This is required.
-        // Example: 'gatsby-source-shopify-test-shop' if your Shopify address is
-        // 'gatsby-source-shopify-test-shop.myshopify.com'.
-        shopName: process.env.GATSBY_SHOP_NAME,
-
-        // An API access token to your Shopify shop. This is required.
-        // You can generate an access token in the "Manage private apps" section
-        // of your shop's Apps settings. In the Storefront API section, be sure
-        // to select "Allow this app to access your storefront data using the
-        // Storefront API".
-        // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
-        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
-
-        // Set verbose to true to display a verbose output on `npm run develop`
-        // or `npm run build`. This prints which nodes are being fetched and how
-        // much time was required to fetch and process the data.
-        // Defaults to true.
-        verbose: true,
-      },
-    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
